@@ -2,4 +2,4 @@
 
 #### Futbol İstatistik Veri Tabanı
 
-![Diagram](C:\Users\riza_\Desktop\InnovaBootcamp\24-RizaCanTire\2.Hafta Database Odev\footballstatisticsDiagram.png)
+![Diagram](https://github.com/156-Innova-Net-Bootcamp-Patika-dev/24-RizaCanTire/blob/main/2.Hafta%20Database%20Odev/footballstatisticsDiagram.png)
