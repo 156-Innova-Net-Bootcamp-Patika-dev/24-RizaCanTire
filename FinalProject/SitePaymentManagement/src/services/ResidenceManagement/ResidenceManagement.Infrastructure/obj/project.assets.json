@@ -1,0 +1,112 @@
+{
+  "version": 3,
+  "targets": {
+    "net5.0": {
+      "ResidenceManagement.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "ResidenceManagement.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ResidenceManagement.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ResidenceManagement.Application.dll": {}
+        }
+      },
+      "ResidenceManagement.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "compile": {
+          "bin/placeholder/ResidenceManagement.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ResidenceManagement.Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ResidenceManagement.Application/1.0.0": {
+      "type": "project",
+      "path": "../ResidenceManagement.Application/ResidenceManagement.Application.csproj",
+      "msbuildProject": "../ResidenceManagement.Application/ResidenceManagement.Application.csproj"
+    },
+    "ResidenceManagement.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ResidenceManagement.Domain/ResidenceManagement.Domain.csproj",
+      "msbuildProject": "../ResidenceManagement.Domain/ResidenceManagement.Domain.csproj"
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net5.0": [
+      "ResidenceManagement.Application >= 1.0.0",
+      "ResidenceManagement.Domain >= 1.0.0"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\riza_\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Infrastructure\\ResidenceManagement.Infrastructure.csproj",
+      "projectName": "ResidenceManagement.Infrastructure",
+      "projectPath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Infrastructure\\ResidenceManagement.Infrastructure.csproj",
+      "packagesPath": "C:\\Users\\riza_\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Infrastructure\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\riza_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net5.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "projectReferences": {
+            "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Application\\ResidenceManagement.Application.csproj": {
+              "projectPath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Application\\ResidenceManagement.Application.csproj"
+            },
+            "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Domain\\ResidenceManagement.Domain.csproj": {
+              "projectPath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Domain\\ResidenceManagement.Domain.csproj"
+            }
+          }
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      }
+    },
+    "frameworks": {
+      "net5.0": {
+        "targetAlias": "net5.0",
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}
