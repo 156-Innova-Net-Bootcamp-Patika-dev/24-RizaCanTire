@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using ResidenceManagement.Application;
+using ResidenceManagement.Infrastructure;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,12 +28,15 @@ namespace ResidenceManagement.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddInfrastructureServices(Configuration);
+            services.AddApplicationService(Configuration);
+            services.AddApiService(Configuration);
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ResidenceManagement.API", Version = "v1" });
-            });
+        //    services.AddSwaggerGen(c =>
+        //    {
+        //        c.SwaggerDoc("v1", new OpenApiInfo { Title = "ResidenceManagement.API", Version = "v1" });
+        //    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

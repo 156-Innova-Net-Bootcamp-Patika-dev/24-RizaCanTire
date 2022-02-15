@@ -1,0 +1,15 @@
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\bin\Debug\net5.0\ResidenceManagement.Application.deps.json
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\bin\Debug\net5.0\ResidenceManagement.Application.dll
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\bin\Debug\net5.0\ref\ResidenceManagement.Application.dll
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\bin\Debug\net5.0\ResidenceManagement.Application.pdb
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\bin\Debug\net5.0\ResidenceManagement.Domain.dll
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\bin\Debug\net5.0\ResidenceManagement.Domain.pdb
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\obj\Debug\net5.0\ResidenceManagement.Application.csproj.AssemblyReference.cache
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\obj\Debug\net5.0\ResidenceManagement.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\obj\Debug\net5.0\ResidenceManagement.Application.AssemblyInfoInputs.cache
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\obj\Debug\net5.0\ResidenceManagement.Application.AssemblyInfo.cs
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\obj\Debug\net5.0\ResidenceManagement.Application.csproj.CoreCompileInputs.cache
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\obj\Debug\net5.0\ResidenceManagement.Application.csproj.CopyComplete
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\obj\Debug\net5.0\ResidenceManagement.Application.dll
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\obj\Debug\net5.0\ref\ResidenceManagement.Application.dll
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.Application\obj\Debug\net5.0\ResidenceManagement.Application.pdb

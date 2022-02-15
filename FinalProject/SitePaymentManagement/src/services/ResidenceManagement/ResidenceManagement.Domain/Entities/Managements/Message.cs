@@ -1,4 +1,5 @@
-﻿using ResidenceManagement.Domain.Entities.Auths;
+﻿using ResidenceManagement.Domain.Commons;
+using ResidenceManagement.Domain.Entities.Auths;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ResidenceManagement.Domain.Entities.Managements
 {
-    public class Message
+    public class Message : EntityBase
     {
         public User Sender { get; set; }
         public User Receiver { get; set; }

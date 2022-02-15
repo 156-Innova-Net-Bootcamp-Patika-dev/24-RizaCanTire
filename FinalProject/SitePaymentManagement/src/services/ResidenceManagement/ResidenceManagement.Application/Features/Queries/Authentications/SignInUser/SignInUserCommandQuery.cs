@@ -1,0 +1,23 @@
+﻿using MediatR;
+using ResidenceManagement.Application.Models.Users;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ResidenceManagement.Application.Features.Queries.Authentications.SignInUser
+{
+    public class SignInUserCommandQuery : IRequest<UserModel>
+    {
+        public SignInUserCommandQuery(string email, string password)
+        {
+
+            Email = email ?? throw new ArgumentException(nameof(email));
+            Password = password ?? throw new ArgumentException(nameof(password));
+        }
+
+        public string Email { get; set; }
+        public string Password { get; set; }
+    }
+}

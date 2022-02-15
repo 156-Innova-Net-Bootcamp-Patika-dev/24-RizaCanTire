@@ -1,0 +1,74 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using ResidenceManagement.Application.Contracts.Repositories;
+using ResidenceManagement.Application.Contracts.Repositories.Commons;
+using ResidenceManagement.Infrastructure.Contracts.Repositories;
+using ResidenceManagement.Infrastructure.Persistence;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ResidenceManagement.Infrastructure
+{
+    public static class InfrastructureServiceRegistration
+    {
+        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
+        {
+            //options.UseSqlite(configuration.GetConnectionString("SqliteConnectionString")));
+
+            //string mySqlConnectionStr = configuration.GetConnectionString("DefaultConnectionString");
+            //string mySqliteStr = configuration.GetConnectionString("Data Source = ..//site.db");
+
+
+            services.AddDbContext<SiteContext>(options =>
+                                             //options.UseSqlite("Data Source = site.db"));
+            options.UseSqlite(configuration.GetConnectionString("SqliteConnectionString")));
+            //options.UseSqlServer(mySqlConnectionStr));
+
+            //#region Authentications
+
+
+
+            //#endregion
+
+
+            //#region Commons
+
+            services.AddTransient(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+            services.AddScoped<IResidenceRepository, ResidenceRepository>();
+            services.AddScoped<IUserResidenceRepository, UserResidenceRepository>();
+
+            //#endregion
+
+            //#region Caching
+
+            //services.AddTransient<ICacheService, MemoryCacheService>();
+
+            //#endregion
+
+            //#region Jobbers
+
+            //services.AddScoped<IJobberRepository, JobberRepository>();
+            //services.AddScoped<IJobberService, JobberService>();
+
+            //#endregion
+
+            //#region Companies
+
+            //services.AddScoped<ICompanyRepository, CompanyRepository>();
+            //services.AddScoped<ICompanyService, CompanyService>();
+
+            //#endregion
+
+
+
+
+
+
+            return services;
+        }
+    }
+}

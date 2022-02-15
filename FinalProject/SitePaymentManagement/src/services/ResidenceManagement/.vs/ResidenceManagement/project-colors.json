@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "00935200-30dc-4928-b173-735885aec782": {
+      "ProjectGuid": "00935200-30dc-4928-b173-735885aec782",
+      "DisplayName": "ResidenceManagement.Infrastructure",
+      "ColorIndex": 0
+    },
+    "14da2b95-2c23-4e87-8a9f-29709e83aca7": {
+      "ProjectGuid": "14da2b95-2c23-4e87-8a9f-29709e83aca7",
+      "DisplayName": "ResidenceManagement.Application",
+      "ColorIndex": 1
+    },
+    "e39bfacb-e32e-4632-914c-4e20c33a0e09": {
+      "ProjectGuid": "e39bfacb-e32e-4632-914c-4e20c33a0e09",
+      "DisplayName": "ResidenceManagement.API",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
