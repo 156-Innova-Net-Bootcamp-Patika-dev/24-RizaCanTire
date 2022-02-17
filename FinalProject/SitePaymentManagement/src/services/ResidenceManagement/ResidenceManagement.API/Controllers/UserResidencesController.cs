@@ -1,8 +1,11 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using ResidenceManagement.Application.Features.Commands.UserResidences.AddUserResidence;
+using ResidenceManagement.Application.Features.Commands.UserResidences.DeleteUserResidence;
 using ResidenceManagement.Application.Features.Queries.Residences.GetUserResidences;
-using System;
+using ResidenceManagement.Application.Features.Queries.UserResidences.GetUserResidenceByResident;
+using ResidenceManagement.Infrastructure.Security.Extensions;
+using System.Security.Claims;
 
 namespace ResidenceManagement.API.Controllers
 {
@@ -24,6 +27,32 @@ namespace ResidenceManagement.API.Controllers
             return Ok(result);
         }
 
-       
+        [HttpPost]
+        public IActionResult Add([FromBody] AddUserResidenceCommand command)
+        {
+            var res = _mediator.Send(command);
+            return Ok(res);
+        }
+
+        [HttpGet]
+        [Route("Resident")]
+        public IActionResult GetResidenct()
+        {
+            //var currentUser = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var currentUserId = User.GetUserId();
+
+            var request = new GetResidenceByResidentQuery();
+            request.UserId = int.Parse(currentUserId);
+            return Ok(_mediator.Send(request));
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var deleteId = id;
+            var result = new DeleteUserResidenceCommand() { DeleteItemId = id };
+            return Ok(_mediator.Send(result));
+        }
+
     }
 }

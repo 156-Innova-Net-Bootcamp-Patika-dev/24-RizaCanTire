@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 
 namespace ResidenceManagement.Application.Models.UserResidences
 {
-    public class UserResidenceAddVm
+    public class AddUserResidenceDto
     {
         public int UserId { get; set; }
-      
+
         public int ResidenceId { get; set; }
-      
-        public ResidentType ResidentType { get; set; }
+
+        public int ResidentTypeId { get; set; }
     }
 }

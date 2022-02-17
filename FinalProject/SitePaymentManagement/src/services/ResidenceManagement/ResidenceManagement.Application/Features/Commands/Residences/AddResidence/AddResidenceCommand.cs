@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace ResidenceManagement.Application.Features.Commands.Residences.AddResidence
 {
-    public class AddResidenceCommand : ResidenceAddVm, IRequest<AddResidenceResponse>
+    public class AddResidenceCommand : ResidenceAddDto, IRequest<AddResidenceResponse>
     {
     }
 }

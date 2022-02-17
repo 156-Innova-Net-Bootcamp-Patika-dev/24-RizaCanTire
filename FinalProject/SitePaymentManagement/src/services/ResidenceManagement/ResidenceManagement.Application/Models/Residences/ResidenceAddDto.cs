@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ResidenceManagement.Application.Models.Residences
 {
-    public class ResidenceAddVm
+    public class ResidenceAddDto
     {
         public int Block { get; set; }
         public int Floor { get; set; }

@@ -4,7 +4,9 @@ using ResidenceManagement.Application.Features.Commands.Authentications.UpdateUs
 using ResidenceManagement.Application.Features.Commands.Residences.AddResidence;
 using ResidenceManagement.Application.Features.Commands.Residences.AddResidenceRange;
 using ResidenceManagement.Application.Features.Commands.Residences.UpdateResidence;
+using ResidenceManagement.Application.Features.Commands.UserResidences.AddUserResidence;
 using ResidenceManagement.Application.Features.Queries.Authentications.SignInUser;
+using ResidenceManagement.Application.Features.Queries.UserResidences.GetUserResidenceByResident;
 using ResidenceManagement.Application.Models.Residences;
 using ResidenceManagement.Application.Models.UserResidences;
 using ResidenceManagement.Application.Models.Users;
@@ -38,9 +40,11 @@ namespace ResidenceManagement.Application.Mappings
 
             #region User Residence DTO
             CreateMap<UserResidenceDto, User>().ReverseMap();
-            CreateMap<UserResidenceDto, UserResidence>().ReverseMap();
+            CreateMap<UserResidenceDto, UserResidence>().ReverseMap(); 
             CreateMap<UserResidenceDto, ResidentType>().ReverseMap();
-            
+            CreateMap<UserResidence, AddUserResidenceCommand>().ReverseMap();
+
+
 
 
             #endregion
@@ -48,10 +52,14 @@ namespace ResidenceManagement.Application.Mappings
             #region Residence
 
             CreateMap<Residence, AddResidenceCommand>().ReverseMap();
-            CreateMap<Residence, ResidenceAddVm>().ReverseMap(); 
+            CreateMap<Residence, ResidenceAddDto>().ReverseMap(); 
             CreateMap<Residence, AddResidenceRangeCommand>().ReverseMap();
             CreateMap<Residence, UpdateResidenceCommand>().ReverseMap();
 
+            #endregion
+
+            #region Resident
+            CreateMap<UserResidence, GetResidenceByResidentQuery>().ReverseMap();
             #endregion
 
 

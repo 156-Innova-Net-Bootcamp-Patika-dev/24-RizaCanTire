@@ -3,6 +3,7 @@ using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
 using ResidenceManagement.Application.FluentValidations.Users;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,8 @@ namespace ResidenceManagement.Application
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
             services.AddControllers()
+            .AddNewtonsoftJson(options =>
+                        options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore)
             .AddFluentValidation(fv =>
             {
                 fv.RegisterValidatorsFromAssemblyContaining<SignUpUserValidator>();
@@ -37,8 +40,8 @@ namespace ResidenceManagement.Application
 
             #endregion
 
-            services.AddControllers().AddNewtonsoftJson(options =>
-                        options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
+          
+            
 
             return services;
         }

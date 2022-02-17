@@ -11,13 +11,13 @@ namespace ResidenceManagement.Application.Contracts.Repositories.Commons
     {
         Task<IReadOnlyList<T>> GetAllAsync();
 
-        Task<T> GetAsync(Expression<Func<T, bool>> predicate);
+        Task<T> GetAsync(Expression<Func<T, bool>> predicate, string includeString = null, params string[] includeStrings);
 
         Task<IReadOnlyList<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null,
                                        Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
                                        List<Expression<Func<T, object>>> includes = null,
                                        bool disableTracking = true, 
-                                       string includeString = null, params Expression<Func<T, Object>>[] includeStrings);
+                                       string includeString = null, params string[] includeStrings);
         Task<T> GetByIdAsync(int id);
 
         Task<IEnumerable<T>> GetByIdsAsync(IEnumerable<int> ids);

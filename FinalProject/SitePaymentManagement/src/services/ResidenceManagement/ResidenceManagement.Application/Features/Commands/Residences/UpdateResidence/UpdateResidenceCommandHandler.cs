@@ -2,6 +2,7 @@
 using MediatR;
 using ResidenceManagement.Application.Contracts.Repositories;
 using ResidenceManagement.Application.CustomExceptions;
+using ResidenceManagement.Application.Exceptions;
 using ResidenceManagement.Domain.Entities.Managements;
 using System;
 using System.Collections.Generic;
@@ -26,20 +27,12 @@ namespace ResidenceManagement.Application.Features.Commands.Residences.UpdateRes
         public async Task<UpdateResidenceResponse> Handle(UpdateResidenceCommand request, CancellationToken cancellationToken)
         {
             
-
-
             var updateResidence =await _residenceRepository.GetByIdAsync(request.Id);
             if (updateResidence == null)
             {
                 throw new NotFoundException(nameof(Residences), request.Id);
             }
             _mapper.Map(request, updateResidence, typeof(UpdateResidenceCommand), typeof(Residence));
-
-            //updateResidence.Floor = request.Floor;
-            //updateResidence.ResidenceTypeId = request.ResidenceTypeId;
-            //updateResidence.Block = request.Block;
-            //updateResidence.DoorNumber = request.DoorNumber;
-            //updateResidence.IsEmpty = request.IsEmpty;
 
             await _residenceRepository.UpdateAsync(updateResidence);
             return new UpdateResidenceResponse(true, updateResidence);

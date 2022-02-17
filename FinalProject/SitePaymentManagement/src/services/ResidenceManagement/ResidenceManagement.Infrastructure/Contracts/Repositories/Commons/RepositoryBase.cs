@@ -55,8 +55,22 @@ namespace ResidenceManagement.Infrastructure.Contracts.Repositories.Commons
 
         }
 
-        public async Task<T> GetAsync(Expression<Func<T, bool>> predicate = null)
+        public async Task<T> GetAsync(Expression<Func<T, bool>> predicate = null, string includeString = null, params string[] includeStrings)
         {
+            IQueryable<T> query = _dbContext.Set<T>();
+
+            if (predicate != null) query = query.Where(predicate);
+
+
+            if (!string.IsNullOrWhiteSpace(includeString)) query = query.Include(includeString);
+
+            if (includeStrings.Length > 0)
+            {
+                foreach (var include in includeStrings)
+                {
+                    query = query.Include(include);
+                }
+            }
             return await _dbContext.Set<T>().Where(predicate).FirstOrDefaultAsync();
         }
 
@@ -67,7 +81,7 @@ namespace ResidenceManagement.Infrastructure.Contracts.Repositories.Commons
         }
 
 
-        public async Task<IReadOnlyList<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, List<Expression<Func<T, object>>> includes = null, bool disableTracking = true, string includeString = null, params Expression<Func<T, Object>>[] includeStrings)
+        public async Task<IReadOnlyList<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, List<Expression<Func<T, object>>> includes = null, bool disableTracking = true, string includeString = null, params string[] includeStrings)
         {
             IQueryable<T> query = _dbContext.Set<T>();
             if (disableTracking) query = query.AsNoTracking();
@@ -83,7 +97,7 @@ namespace ResidenceManagement.Infrastructure.Contracts.Repositories.Commons
 
             if (includeStrings.Length > 0)
             {
-                foreach (var include in includes)
+                foreach (var include in includeStrings)
                 {
                     query = query.Include(include);
                 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ResidenceManagement.Application.Models.Residences
 {
-    public class UpdateResidenceVm : EntityBase
+    public class UpdateResidenceDto : EntityBase
     {
     }
 }
