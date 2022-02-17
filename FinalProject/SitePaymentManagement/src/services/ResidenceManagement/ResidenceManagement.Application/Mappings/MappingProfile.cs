@@ -1,16 +1,16 @@
 ﻿using AutoMapper;
 using ResidenceManagement.Application.Features.Commands.Authentications.SignUpUser;
+using ResidenceManagement.Application.Features.Commands.Authentications.UpdateUser;
+using ResidenceManagement.Application.Features.Commands.Residences.AddResidence;
+using ResidenceManagement.Application.Features.Commands.Residences.AddResidenceRange;
+using ResidenceManagement.Application.Features.Commands.Residences.UpdateResidence;
 using ResidenceManagement.Application.Features.Queries.Authentications.SignInUser;
 using ResidenceManagement.Application.Models.Residences;
 using ResidenceManagement.Application.Models.UserResidences;
 using ResidenceManagement.Application.Models.Users;
 using ResidenceManagement.Domain.Entities.Auths;
 using ResidenceManagement.Domain.Entities.Managements;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ResidenceManagement.Application.Mappings
 {
@@ -21,8 +21,12 @@ namespace ResidenceManagement.Application.Mappings
             #region User
             CreateMap<User, UserDto>().ReverseMap();
             CreateMap<User, UserModel>().ReverseMap();
-            CreateMap<SignUpUserCommand, User>().ReverseMap();
+            CreateMap<SignUpUserCommand, User>().ReverseMap(); 
             CreateMap<SignInUserCommandQuery, User>().ReverseMap();
+            CreateMap<User, UserListModel>().ReverseMap(); 
+            CreateMap<User, UserUpdateDto>().ReverseMap();
+            CreateMap<User, UpdateUserCommand>().ReverseMap();
+
             #endregion
 
 
@@ -36,10 +40,19 @@ namespace ResidenceManagement.Application.Mappings
             CreateMap<UserResidenceDto, User>().ReverseMap();
             CreateMap<UserResidenceDto, UserResidence>().ReverseMap();
             CreateMap<UserResidenceDto, ResidentType>().ReverseMap();
+            
 
 
             #endregion
 
+            #region Residence
+
+            CreateMap<Residence, AddResidenceCommand>().ReverseMap();
+            CreateMap<Residence, ResidenceAddVm>().ReverseMap(); 
+            CreateMap<Residence, AddResidenceRangeCommand>().ReverseMap();
+            CreateMap<Residence, UpdateResidenceCommand>().ReverseMap();
+
+            #endregion
 
 
 

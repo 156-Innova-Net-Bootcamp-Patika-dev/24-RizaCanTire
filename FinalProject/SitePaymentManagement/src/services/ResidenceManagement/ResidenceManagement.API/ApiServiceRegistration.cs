@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using ResidenceManagement.Application.CustomExceptions;
+using ResidenceManagement.Application.Exceptions;
 using ResidenceManagement.Application.Extentions;
 using ResidenceManagement.Application.Settings;
 using ResidenceManagement.Domain.Entities.Auths;
@@ -36,6 +38,8 @@ namespace ResidenceManagement.API
             #endregion
 
             services.ConfigureCors();
+
+            services.AddControllers(options => options.Filters.Add(typeof(ExceptionFilter)));
 
             services.AddAuth(jwt);
             services.AddAuthorization(options =>

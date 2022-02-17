@@ -1,9 +1,14 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using ResidenceManagement.Application.Features.Commands.Authentications.DeleteUser;
 using ResidenceManagement.Application.Features.Commands.Authentications.SignUpUser;
+using ResidenceManagement.Application.Features.Commands.Authentications.UpdateUser;
+using ResidenceManagement.Application.Features.Queries.Authentications.GetUsers;
 using ResidenceManagement.Application.Features.Queries.Authentications.SignInUser;
 using ResidenceManagement.Application.Models.Users;
 using ResidenceManagement.Application.Settings;
@@ -31,33 +36,60 @@ namespace ResidenceManagement.API.Controllers
             _jwtSettings = jwtSettings.Value;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost("SignUp")]
         public async Task<IActionResult> SignUp(SignUpUserCommand signUpUserCommand)
         {
             var result = await _mediator.Send(signUpUserCommand);
 
-            if (result != 0)
+            if (result.Succeeded)
             {
                 return Ok();
             }
 
-            return BadRequest("User not created");
+            return BadRequest(result);
         }
 
         [HttpPost("SignIn")]
-        public async Task<IActionResult> SignIn(string email, string password)
+        public async Task<IActionResult> SignIn([FromQuery] SignInUserCommandQuery signInUserCommandQuery)
         {
-            var query = new SignInUserCommandQuery(email, password);
+            var query = signInUserCommandQuery;
             var userModel = await _mediator.Send(query);
 
             if (userModel != null)
             {
-                return Ok(GenerateJwt(userModel));
+                var createdJwt = GenerateJwt(userModel);
+                return Ok(createdJwt);
             }
 
             return BadRequest("Email or password incorrect.");
         }
 
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        [Route("users")]
+
+        public ActionResult Get()
+        {
+            return Ok(_mediator.Send(new GetUserListQuery()));
+        }
+
+        [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
+
+        public IActionResult Delete(int id)
+        {
+            return Ok(_mediator.Send(new DeleteUserCommand(id)));
+        }
+
+        [HttpPut]
+        [Authorize(Roles = "Admin")]
+
+        public async Task<IdentityResult> Update([FromQuery] UpdateUserCommand userCommand)
+        {
+            
+            return await _mediator.Send(userCommand);
+        }
 
         private string GenerateJwt(UserModel userModel)
         {

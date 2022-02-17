@@ -4,6 +4,7 @@ using Microsoft.Extensions.DependencyInjection;
 using ResidenceManagement.Application.Contracts.Repositories;
 using ResidenceManagement.Application.Contracts.Repositories.Commons;
 using ResidenceManagement.Infrastructure.Contracts.Repositories;
+using ResidenceManagement.Infrastructure.Contracts.Repositories.Commons;
 using ResidenceManagement.Infrastructure.Persistence;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,6 @@ namespace ResidenceManagement.Infrastructure
     {
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
-            //options.UseSqlite(configuration.GetConnectionString("SqliteConnectionString")));
 
             //string mySqlConnectionStr = configuration.GetConnectionString("DefaultConnectionString");
             //string mySqliteStr = configuration.GetConnectionString("Data Source = ..//site.db");
@@ -27,12 +27,6 @@ namespace ResidenceManagement.Infrastructure
                                              //options.UseSqlite("Data Source = site.db"));
             options.UseSqlite(configuration.GetConnectionString("SqliteConnectionString")));
             //options.UseSqlServer(mySqlConnectionStr));
-
-            //#region Authentications
-
-
-
-            //#endregion
 
 
             //#region Commons
@@ -48,22 +42,6 @@ namespace ResidenceManagement.Infrastructure
             //services.AddTransient<ICacheService, MemoryCacheService>();
 
             //#endregion
-
-            //#region Jobbers
-
-            //services.AddScoped<IJobberRepository, JobberRepository>();
-            //services.AddScoped<IJobberService, JobberService>();
-
-            //#endregion
-
-            //#region Companies
-
-            //services.AddScoped<ICompanyRepository, CompanyRepository>();
-            //services.AddScoped<ICompanyService, CompanyService>();
-
-            //#endregion
-
-
 
 
 

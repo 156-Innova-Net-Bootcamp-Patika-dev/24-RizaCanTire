@@ -9,7 +9,7 @@ namespace ResidenceManagement.Domain.Entities.Auths
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int NationalId { get; set; }
+        public string NationalId { get; set; }
         public string CarPlate { get; set; }
         public IEnumerable<UserResidence> UserResidences { get; set; }
 

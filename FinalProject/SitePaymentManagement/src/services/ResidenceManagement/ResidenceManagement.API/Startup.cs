@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using ResidenceManagement.Application;
 using ResidenceManagement.Infrastructure;
+using ResidenceManagement.Infrastructure.Middlewares;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -48,11 +49,15 @@ namespace ResidenceManagement.API
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ResidenceManagement.API v1"));
             }
+            app.ConfigureCustomExceptionMiddleware();
+
 
             app.UseHttpsRedirection();
 
+
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

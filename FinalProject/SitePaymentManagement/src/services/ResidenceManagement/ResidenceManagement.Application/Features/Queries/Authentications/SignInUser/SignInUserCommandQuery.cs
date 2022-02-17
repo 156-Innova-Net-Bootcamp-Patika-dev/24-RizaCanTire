@@ -10,13 +10,7 @@ namespace ResidenceManagement.Application.Features.Queries.Authentications.SignI
 {
     public class SignInUserCommandQuery : IRequest<UserModel>
     {
-        public SignInUserCommandQuery(string email, string password)
-        {
-
-            Email = email ?? throw new ArgumentException(nameof(email));
-            Password = password ?? throw new ArgumentException(nameof(password));
-        }
-
+        
         public string Email { get; set; }
         public string Password { get; set; }
     }

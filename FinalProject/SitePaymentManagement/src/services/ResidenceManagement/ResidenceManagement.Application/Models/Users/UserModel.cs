@@ -14,7 +14,7 @@ namespace ResidenceManagement.Application.Models.Users
         public string LastName { get; set; }
         public string Password { get; set; }
         public IList<string> Roles { get; set; }
-        public int NationalId { get; set; }
+        public string NationalId { get; set; }
         public string CarPlate { get; set; }
     }
 }

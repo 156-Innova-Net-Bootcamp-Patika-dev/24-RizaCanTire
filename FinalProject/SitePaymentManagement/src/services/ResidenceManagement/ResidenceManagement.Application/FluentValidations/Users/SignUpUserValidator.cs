@@ -13,9 +13,14 @@ namespace ResidenceManagement.Application.FluentValidations.Users
         public SignUpUserValidator()
         {
 
-            RuleFor(p => p.Email).NotEmpty().WithMessage("{Email Address} is required.");
+            RuleFor(p => p.Email).EmailAddress().NotEmpty().WithMessage("{Email Address} is required.");
 
-            RuleFor(p => p.Password).NotEmpty().WithMessage("{Password} is required.");
+            RuleFor(p => p.FirstName).NotEmpty().WithMessage("{FirstName} is required.");
+            RuleFor(p => p.LastName).NotEmpty().WithMessage("{LastName} is required.");
+ 
+            RuleFor(p => p.NationalId).Length(11).WithMessage("National Identiyu must be 11 character");
+
+
 
         }
     }
