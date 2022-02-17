@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using MediatR;
 using ResidenceManagement.Application.Contracts.Repositories;
+using ResidenceManagement.Application.Exceptions;
+using ResidenceManagement.Application.Models.UserResidences;
 using ResidenceManagement.Application.Responses;
 using ResidenceManagement.Domain.Entities.Managements;
 using System;
@@ -12,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace ResidenceManagement.Application.Features.Commands.UserResidences.UpateUserResidence
 {
-    public class UpdateUserResidenceCommandHandler : IRequestHandler<UpdateUserResidenceCommand, BaseDataResponse<UserResidence>>
+    public class UpdateUserResidenceCommandHandler : IRequestHandler<UpdateUserResidenceCommand, BaseDataResponse<UpdateUserResidenceDto>>
     {
         private IUserResidenceRepository _userResidenceRepository;
         private readonly IMapper _mapper;
@@ -23,9 +25,19 @@ namespace ResidenceManagement.Application.Features.Commands.UserResidences.Upate
             _mapper = mapper;
         }
 
-        public Task<BaseDataResponse<UserResidence>> Handle(UpdateUserResidenceCommand request, CancellationToken cancellationToken)
+        public async Task<BaseDataResponse<UpdateUserResidenceDto>> Handle(UpdateUserResidenceCommand request, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            var updateUserResidence = await _userResidenceRepository.GetByIdAsync(request.Id);
+
+            if (updateUserResidence == null)
+            {
+                throw new NotFoundException(nameof(UserResidence), request.Id);
+            }
+            _mapper.Map(request, updateUserResidence, typeof(UpdateUserResidenceCommand), typeof(UserResidence));
+
+            await _userResidenceRepository.UpdateAsync(updateUserResidence);
+            //var returnResidence = _mapper.Map<UpdateUserResidenceDto>(updateUserResidence);
+            return new BaseDataResponse<UpdateUserResidenceDto>(true, request);
         }
     }
 }

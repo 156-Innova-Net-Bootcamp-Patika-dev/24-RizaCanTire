@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ResidenceManagement.Application.Features.Commands.UserResidences.UpateUserResidence
 {
-    public class UpdateUserResidenceCommand : UpdateUserResidenceDto, IRequest<BaseDataResponse<UserResidence>>
+    public class UpdateUserResidenceCommand : UpdateUserResidenceDto, IRequest<BaseDataResponse<UpdateUserResidenceDto>>
     {
     }
 }

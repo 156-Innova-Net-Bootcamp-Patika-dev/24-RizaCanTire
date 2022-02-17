@@ -8,6 +8,7 @@ namespace ResidenceManagement.Application.Models.UserResidences
 {
     public class UpdateUserResidenceDto
     {
+        public int Id { get; set; }
         public int UserId { get; set; }
 
         public int ResidenceId { get; set; }
