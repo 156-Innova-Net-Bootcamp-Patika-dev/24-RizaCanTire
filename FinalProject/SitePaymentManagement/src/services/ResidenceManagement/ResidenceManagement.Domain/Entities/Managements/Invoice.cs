@@ -9,5 +9,7 @@ namespace ResidenceManagement.Domain.Entities.Managements
 {
     public class Invoice : PaymentBase
     {
+
+
     }
 }

@@ -16,9 +16,12 @@ namespace ResidenceManagement.Infrastructure.Persistence
         public DbSet<Residence> Residences { get; set; }
         public DbSet<ResidenceType> ResidenceTypes { get; set; }
         public DbSet<UserResidence> UserResidences { get; set; }
-        public DbSet<Dues> Dues { get; set; }
+        public DbSet<Dues> Dueses { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
         public DbSet<Message> Messages { get; set; }
+        public DbSet<ResidenceDues> ResidenceDues { get; set; }
+        public DbSet<ResidenceInvoice> ResidenceInvoices { get; set; }
+
 
 
         protected override void OnModelCreating(ModelBuilder builder)
@@ -29,6 +32,7 @@ namespace ResidenceManagement.Infrastructure.Persistence
             SeedRoles(builder);
             SeedResidenceType(builder);
             SeedUserRole(builder);
+            SeedResidentType(builder);
 
 
         }
@@ -91,7 +95,16 @@ namespace ResidenceManagement.Infrastructure.Persistence
                 
                 );
         }
-      
+
+        private void SeedResidentType(ModelBuilder builder)
+        {
+            builder.Entity<ResidentType>().HasData(
+                new ResidentType() {Id=1, Type = "Owner" },
+                new ResidentType() {Id=2,  Type = "Tenant" }
+
+                );
+        }
+
 
     }
 }

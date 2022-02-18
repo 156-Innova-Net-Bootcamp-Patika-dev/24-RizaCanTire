@@ -13,7 +13,7 @@ namespace ResidenceManagement.Application.FluentValidations.UserResidences
         public AddUserResidenceValidation()
         {
             RuleFor(u => u.ResidentTypeId).LessThan(3);
-            RuleFor(f=>f.ResidenceId).GreaterThan(1);
+            RuleFor(f => f.ResidenceId).NotEmpty();
         }
     }
 }

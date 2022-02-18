@@ -9,11 +9,11 @@ namespace ResidenceManagement.Domain.Commons
 {
     public class PaymentBase : EntityBase
     {
-        public int UserResidenceId { get; set; }
-        public UserResidence UserResidence { get; set; }
+        //public int UserResidenceId { get; set; }
+        //public UserResidence UserResidence { get; set; }
         public int Fee { get; set; }
-        public bool IsPaid { get; set; }
-        public DateTime Period { get; set; }
+        public int Year { get; set; }
+        public int Month { get; set; }
 
     }
 }

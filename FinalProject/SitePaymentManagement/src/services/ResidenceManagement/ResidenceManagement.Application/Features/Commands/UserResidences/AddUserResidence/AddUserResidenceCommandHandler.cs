@@ -29,13 +29,13 @@ namespace ResidenceManagement.Application.Features.Commands.UserResidences.AddUs
         public async Task<AddUserResidenceResponse> Handle(AddUserResidenceCommand request, CancellationToken cancellationToken)
         {
             var isExist =  await _residenceRepository.GetAsync(u=>u.Id == request.ResidenceId);
-            if (isExist.IsEmpty == true)
+            if (isExist.IsFull == true)
                 throw new NotEmptyException("Dolu daire.");
 
             var entity = _mapper.Map<UserResidence>(request);
             await _userResidenceRepository.AddAsync(entity);
 
-            isExist.IsEmpty = true;
+            isExist.IsFull = true;
             await _residenceRepository.UpdateAsync(isExist);
             return new AddUserResidenceResponse(true);
 

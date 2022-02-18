@@ -59,7 +59,6 @@ C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement
 C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\obj\Debug\net5.0\ResidenceManagement.API.AssemblyInfoInputs.cache
 C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\obj\Debug\net5.0\ResidenceManagement.API.AssemblyInfo.cs
 C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\obj\Debug\net5.0\ResidenceManagement.API.csproj.CoreCompileInputs.cache
-C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\obj\Debug\net5.0\ResidenceManagement.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\obj\Debug\net5.0\ResidenceManagement.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\obj\Debug\net5.0\scopedcss\bundle\ResidenceManagement.API.styles.css
 C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\obj\Debug\net5.0\staticwebassets\ResidenceManagement.API.StaticWebAssets.Manifest.cache
@@ -105,3 +104,4 @@ C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement
 C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\obj\Debug\net5.0\ResidenceManagement.API.MvcApplicationPartsAssemblyInfo.cs

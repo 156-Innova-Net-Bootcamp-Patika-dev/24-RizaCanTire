@@ -30,7 +30,7 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     FirstName = table.Column<string>(type: "TEXT", nullable: true),
                     LastName = table.Column<string>(type: "TEXT", nullable: true),
-                    NationalId = table.Column<int>(type: "INTEGER", nullable: false),
+                    NationalId = table.Column<string>(type: "TEXT", nullable: true),
                     CarPlate = table.Column<string>(type: "TEXT", nullable: true),
                     UserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "TEXT", maxLength: 256, nullable: true),
@@ -53,6 +53,36 @@ namespace ResidenceManagement.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Dueses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Fee = table.Column<int>(type: "INTEGER", nullable: false),
+                    Year = table.Column<int>(type: "INTEGER", nullable: false),
+                    Month = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Dueses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Invoices",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Fee = table.Column<int>(type: "INTEGER", nullable: false),
+                    Year = table.Column<int>(type: "INTEGER", nullable: false),
+                    Month = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Invoices", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ResidenceTypes",
                 columns: table => new
                 {
@@ -63,6 +93,19 @@ namespace ResidenceManagement.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ResidenceTypes", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ResidentType",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Type = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ResidentType", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -209,7 +252,7 @@ namespace ResidenceManagement.Infrastructure.Migrations
                     Block = table.Column<int>(type: "INTEGER", nullable: false),
                     Floor = table.Column<int>(type: "INTEGER", nullable: false),
                     DoorNumber = table.Column<int>(type: "INTEGER", nullable: false),
-                    IsEmpty = table.Column<bool>(type: "INTEGER", nullable: false),
+                    IsFull = table.Column<bool>(type: "INTEGER", nullable: false),
                     ResidenceTypeId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
@@ -231,7 +274,7 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     UserId = table.Column<int>(type: "INTEGER", nullable: false),
                     ResidenceId = table.Column<int>(type: "INTEGER", nullable: false),
-                    ResidentType = table.Column<int>(type: "INTEGER", nullable: false)
+                    ResidentTypeId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -248,24 +291,34 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         principalTable: "Residences",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserResidences_ResidentType_ResidentTypeId",
+                        column: x => x.ResidentTypeId,
+                        principalTable: "ResidentType",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Dues",
+                name: "ResidenceDues",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UserResidenceId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Fee = table.Column<int>(type: "INTEGER", nullable: false),
-                    IsPaid = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Period = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    DuesId = table.Column<int>(type: "INTEGER", nullable: false),
+                    UserResidenceId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Dues", x => x.Id);
+                    table.PrimaryKey("PK_ResidenceDues", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Dues_UserResidences_UserResidenceId",
+                        name: "FK_ResidenceDues_Dueses_DuesId",
+                        column: x => x.DuesId,
+                        principalTable: "Dueses",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ResidenceDues_UserResidences_UserResidenceId",
                         column: x => x.UserResidenceId,
                         principalTable: "UserResidences",
                         principalColumn: "Id",
@@ -273,21 +326,26 @@ namespace ResidenceManagement.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Invoices",
+                name: "ResidenceInvoices",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    InvoiceId = table.Column<int>(type: "INTEGER", nullable: false),
                     UserResidenceId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Fee = table.Column<int>(type: "INTEGER", nullable: false),
-                    IsPaid = table.Column<bool>(type: "INTEGER", nullable: false),
-                    Period = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    IsPaid = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Invoices", x => x.Id);
+                    table.PrimaryKey("PK_ResidenceInvoices", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Invoices_UserResidences_UserResidenceId",
+                        name: "FK_ResidenceInvoices_Invoices_InvoiceId",
+                        column: x => x.InvoiceId,
+                        principalTable: "Invoices",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ResidenceInvoices_UserResidences_UserResidenceId",
                         column: x => x.UserResidenceId,
                         principalTable: "UserResidences",
                         principalColumn: "Id",
@@ -307,12 +365,12 @@ namespace ResidenceManagement.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "CarPlate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NationalId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 1, 0, null, "12c12dea-59a7-4926-ac37-38c821280370", "admin@admin.com", false, "Rıza Can", "Tire", false, null, 0, null, null, "AQAAAAEAACcQAAAAEPPIecdD4mr6P77J/SJ8jbv5Jn2b2Lp1i/RY2vMyu3G6fPaTRTHsFL0/5ry6/rwbQA==", null, false, null, false, null });
+                values: new object[] { 1, 0, null, "c4a7eae9-08b9-49fc-82d2-6360087c159e", "admin@admin.com", false, "Rıza Can", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEGKDOz3LeWhbkGalze+2hF/NZS/BN8/8CMbxkRAgb3C4EDc53pvAuOiyC3wPv8oqTA==", null, false, null, false, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "CarPlate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NationalId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 2, 0, null, "3897d75e-fcee-4cc4-9c94-02782ccdc2e2", "ahmet@admin.com", false, "Ahmet", "Tire", false, null, 0, null, null, "AQAAAAEAACcQAAAAEJ2Q4W84DzdTbYG6/6lrThltdoKIQeB2bl/9LPb/5QQ3UbBS8lcEKWTvD5E2aL0adA==", null, false, null, false, null });
+                values: new object[] { 2, 0, null, "028cebd4-27cb-47e0-98f9-c17f7e06c232", "ahmet@admin.com", false, "Ahmet", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEHha4m1suwoke0bIa3GqukWiynxVd1sIyv3QcjrW+5Gw92qbWSmR95S6hNPcaDPYtQ==", null, false, null, false, null });
 
             migrationBuilder.InsertData(
                 table: "ResidenceTypes",
@@ -343,6 +401,16 @@ namespace ResidenceManagement.Infrastructure.Migrations
                 table: "ResidenceTypes",
                 columns: new[] { "Id", "Type" },
                 values: new object[] { 6, "5+1" });
+
+            migrationBuilder.InsertData(
+                table: "ResidentType",
+                columns: new[] { "Id", "Type" },
+                values: new object[] { 1, "Owner" });
+
+            migrationBuilder.InsertData(
+                table: "ResidentType",
+                columns: new[] { "Id", "Type" },
+                values: new object[] { 2, "Tenant" });
 
             migrationBuilder.InsertData(
                 table: "AspNetUserRoles",
@@ -392,16 +460,6 @@ namespace ResidenceManagement.Infrastructure.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_Dues_UserResidenceId",
-                table: "Dues",
-                column: "UserResidenceId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Invoices_UserResidenceId",
-                table: "Invoices",
-                column: "UserResidenceId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Messages_ReceiverId",
                 table: "Messages",
                 column: "ReceiverId");
@@ -412,6 +470,26 @@ namespace ResidenceManagement.Infrastructure.Migrations
                 column: "SenderId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ResidenceDues_DuesId",
+                table: "ResidenceDues",
+                column: "DuesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ResidenceDues_UserResidenceId",
+                table: "ResidenceDues",
+                column: "UserResidenceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ResidenceInvoices_InvoiceId",
+                table: "ResidenceInvoices",
+                column: "InvoiceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ResidenceInvoices_UserResidenceId",
+                table: "ResidenceInvoices",
+                column: "UserResidenceId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Residences_ResidenceTypeId",
                 table: "Residences",
                 column: "ResidenceTypeId");
@@ -420,6 +498,11 @@ namespace ResidenceManagement.Infrastructure.Migrations
                 name: "IX_UserResidences_ResidenceId",
                 table: "UserResidences",
                 column: "ResidenceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserResidences_ResidentTypeId",
+                table: "UserResidences",
+                column: "ResidentTypeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserResidences_UserId",
@@ -445,16 +528,22 @@ namespace ResidenceManagement.Infrastructure.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Dues");
-
-            migrationBuilder.DropTable(
-                name: "Invoices");
-
-            migrationBuilder.DropTable(
                 name: "Messages");
 
             migrationBuilder.DropTable(
+                name: "ResidenceDues");
+
+            migrationBuilder.DropTable(
+                name: "ResidenceInvoices");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Dueses");
+
+            migrationBuilder.DropTable(
+                name: "Invoices");
 
             migrationBuilder.DropTable(
                 name: "UserResidences");
@@ -464,6 +553,9 @@ namespace ResidenceManagement.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Residences");
+
+            migrationBuilder.DropTable(
+                name: "ResidentType");
 
             migrationBuilder.DropTable(
                 name: "ResidenceTypes");

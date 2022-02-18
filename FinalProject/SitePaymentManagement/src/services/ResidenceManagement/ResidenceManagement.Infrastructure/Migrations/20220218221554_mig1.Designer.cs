@@ -9,7 +9,7 @@ using ResidenceManagement.Infrastructure.Persistence;
 namespace ResidenceManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(SiteContext))]
-    [Migration("20220215124132_mig1")]
+    [Migration("20220218221554_mig1")]
     partial class mig1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -201,8 +201,8 @@ namespace ResidenceManagement.Infrastructure.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("NationalId")
-                        .HasColumnType("INTEGER");
+                    b.Property<string>("NationalId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("NormalizedEmail")
                         .HasMaxLength(256)
@@ -247,14 +247,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "12c12dea-59a7-4926-ac37-38c821280370",
+                            ConcurrencyStamp = "c4a7eae9-08b9-49fc-82d2-6360087c159e",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             FirstName = "Rıza Can",
                             LastName = "Tire",
                             LockoutEnabled = false,
-                            NationalId = 0,
-                            PasswordHash = "AQAAAAEAACcQAAAAEPPIecdD4mr6P77J/SJ8jbv5Jn2b2Lp1i/RY2vMyu3G6fPaTRTHsFL0/5ry6/rwbQA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGKDOz3LeWhbkGalze+2hF/NZS/BN8/8CMbxkRAgb3C4EDc53pvAuOiyC3wPv8oqTA==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         },
@@ -262,14 +261,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "3897d75e-fcee-4cc4-9c94-02782ccdc2e2",
+                            ConcurrencyStamp = "028cebd4-27cb-47e0-98f9-c17f7e06c232",
                             Email = "ahmet@admin.com",
                             EmailConfirmed = false,
                             FirstName = "Ahmet",
                             LastName = "Tire",
                             LockoutEnabled = false,
-                            NationalId = 0,
-                            PasswordHash = "AQAAAAEAACcQAAAAEJ2Q4W84DzdTbYG6/6lrThltdoKIQeB2bl/9LPb/5QQ3UbBS8lcEKWTvD5E2aL0adA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEHha4m1suwoke0bIa3GqukWiynxVd1sIyv3QcjrW+5Gw92qbWSmR95S6hNPcaDPYtQ==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         });
@@ -284,20 +282,15 @@ namespace ResidenceManagement.Infrastructure.Migrations
                     b.Property<int>("Fee")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsPaid")
+                    b.Property<int>("Month")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Period")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("UserResidenceId")
+                    b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserResidenceId");
-
-                    b.ToTable("Dues");
+                    b.ToTable("Dueses");
                 });
 
             modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.Invoice", b =>
@@ -309,18 +302,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                     b.Property<int>("Fee")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsPaid")
+                    b.Property<int>("Month")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("Period")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("UserResidenceId")
+                    b.Property<int>("Year")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("UserResidenceId");
 
                     b.ToTable("Invoices");
                 });
@@ -367,7 +355,7 @@ namespace ResidenceManagement.Infrastructure.Migrations
                     b.Property<int>("Floor")
                         .HasColumnType("INTEGER");
 
-                    b.Property<bool>("IsEmpty")
+                    b.Property<bool>("IsFull")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("ResidenceTypeId")
@@ -378,6 +366,51 @@ namespace ResidenceManagement.Infrastructure.Migrations
                     b.HasIndex("ResidenceTypeId");
 
                     b.ToTable("Residences");
+                });
+
+            modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.ResidenceDues", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DuesId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserResidenceId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DuesId");
+
+                    b.HasIndex("UserResidenceId");
+
+                    b.ToTable("ResidenceDues");
+                });
+
+            modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.ResidenceInvoice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("InvoiceId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsPaid")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("UserResidenceId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InvoiceId");
+
+                    b.HasIndex("UserResidenceId");
+
+                    b.ToTable("ResidenceInvoices");
                 });
 
             modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.ResidenceType", b =>
@@ -426,6 +459,32 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         });
                 });
 
+            modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.ResidentType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ResidentType");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Type = "Owner"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Type = "Tenant"
+                        });
+                });
+
             modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.UserResidence", b =>
                 {
                     b.Property<int>("Id")
@@ -435,7 +494,7 @@ namespace ResidenceManagement.Infrastructure.Migrations
                     b.Property<int>("ResidenceId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("ResidentType")
+                    b.Property<int>("ResidentTypeId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("UserId")
@@ -444,6 +503,8 @@ namespace ResidenceManagement.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("ResidenceId");
+
+                    b.HasIndex("ResidentTypeId");
 
                     b.HasIndex("UserId");
 
@@ -520,28 +581,6 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.Dues", b =>
-                {
-                    b.HasOne("ResidenceManagement.Domain.Entities.Managements.UserResidence", "UserResidence")
-                        .WithMany()
-                        .HasForeignKey("UserResidenceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserResidence");
-                });
-
-            modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.Invoice", b =>
-                {
-                    b.HasOne("ResidenceManagement.Domain.Entities.Managements.UserResidence", "UserResidence")
-                        .WithMany()
-                        .HasForeignKey("UserResidenceId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("UserResidence");
-                });
-
             modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.Message", b =>
                 {
                     b.HasOne("ResidenceManagement.Domain.Entities.Auths.User", "Receiver")
@@ -568,11 +607,55 @@ namespace ResidenceManagement.Infrastructure.Migrations
                     b.Navigation("ResidenceType");
                 });
 
+            modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.ResidenceDues", b =>
+                {
+                    b.HasOne("ResidenceManagement.Domain.Entities.Managements.Dues", "Dues")
+                        .WithMany()
+                        .HasForeignKey("DuesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ResidenceManagement.Domain.Entities.Managements.UserResidence", "UserResidence")
+                        .WithMany()
+                        .HasForeignKey("UserResidenceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Dues");
+
+                    b.Navigation("UserResidence");
+                });
+
+            modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.ResidenceInvoice", b =>
+                {
+                    b.HasOne("ResidenceManagement.Domain.Entities.Managements.Invoice", "Invoice")
+                        .WithMany()
+                        .HasForeignKey("InvoiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ResidenceManagement.Domain.Entities.Managements.UserResidence", "UserResidence")
+                        .WithMany("Invoices")
+                        .HasForeignKey("UserResidenceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Invoice");
+
+                    b.Navigation("UserResidence");
+                });
+
             modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.UserResidence", b =>
                 {
                     b.HasOne("ResidenceManagement.Domain.Entities.Managements.Residence", "Residence")
                         .WithMany("UserResidences")
                         .HasForeignKey("ResidenceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ResidenceManagement.Domain.Entities.Managements.ResidentType", "ResidentType")
+                        .WithMany()
+                        .HasForeignKey("ResidentTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -583,6 +666,8 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         .IsRequired();
 
                     b.Navigation("Residence");
+
+                    b.Navigation("ResidentType");
 
                     b.Navigation("User");
                 });
@@ -604,6 +689,11 @@ namespace ResidenceManagement.Infrastructure.Migrations
             modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.ResidenceType", b =>
                 {
                     b.Navigation("Residences");
+                });
+
+            modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.UserResidence", b =>
+                {
+                    b.Navigation("Invoices");
                 });
 #pragma warning restore 612, 618
         }

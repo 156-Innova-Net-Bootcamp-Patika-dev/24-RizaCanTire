@@ -10,7 +10,7 @@ namespace ResidenceManagement.Application.Features.Commands.Residences.UpdateRes
     public class UpdateResidenceCommand : IRequest<UpdateResidenceResponse>
     {
         public int Id { get; set; }
-        public bool IsEmpty { get; set; }
+        public bool IsFull { get; set; }
         public int ResidenceTypeId { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using ResidenceManagement.Domain.Commons;
 using ResidenceManagement.Domain.Entities.Auths;
+using System.Collections.Generic;
 
 namespace ResidenceManagement.Domain.Entities.Managements
 {
@@ -11,6 +12,7 @@ namespace ResidenceManagement.Domain.Entities.Managements
         public Residence Residence { get; set; }
         public int ResidentTypeId { get; set; }
         public ResidentType ResidentType { get; set; }
+        public IEnumerable<ResidenceInvoice> Invoices { get; set; }
 
     }
 

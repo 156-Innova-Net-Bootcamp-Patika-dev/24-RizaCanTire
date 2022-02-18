@@ -34,6 +34,13 @@ namespace ResidenceManagement.Infrastructure
             services.AddTransient(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
             services.AddScoped<IResidenceRepository, ResidenceRepository>();
             services.AddScoped<IUserResidenceRepository, UserResidenceRepository>();
+            services.AddScoped<IDuesRepository, DuesRepository>();
+            services.AddScoped<IInvoiceRepository, InvoiceRepository>();
+            services.AddScoped<IMessageRepository, MessageRepository>();
+            services.AddScoped<IResidenceDuesRepository, ResidenceDuesRepository>();
+            services.AddScoped<IResidenceInvoiceRepository, ResidenceInvoiceRepository>();
+
+
 
             //#endregion
 

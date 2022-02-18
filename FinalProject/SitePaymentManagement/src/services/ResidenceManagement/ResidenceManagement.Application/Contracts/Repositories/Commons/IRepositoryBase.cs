@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ResidenceManagement.Application.Contracts.Repositories.Commons
@@ -16,7 +17,7 @@ namespace ResidenceManagement.Application.Contracts.Repositories.Commons
         Task<IReadOnlyList<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null,
                                        Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
                                        List<Expression<Func<T, object>>> includes = null,
-                                       bool disableTracking = true, 
+                                       bool disableTracking = true,
                                        string includeString = null, params string[] includeStrings);
         Task<T> GetByIdAsync(int id);
 

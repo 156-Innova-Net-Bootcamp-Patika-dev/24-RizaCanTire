@@ -13,5 +13,10 @@ namespace ResidenceManagement.Application.Exceptions
             : base($"Entity \"{key.GetType().Name.ToString()}\"  was not found.")
         {
         }
+
+        public NotFoundException(string name)
+            : base($"Entity \"{name}\"  was not found.")
+        {
+        }
     }
 }
