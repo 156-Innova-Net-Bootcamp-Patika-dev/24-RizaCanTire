@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ResidenceManagement.Application.Features.Queries.Authentications.SignInUser
 {
-    public class SignInUserCommandQuery : IRequest<UserModel>
+    public class SignInUserQuery : IRequest<UserModel>
     {
         
         public string Email { get; set; }

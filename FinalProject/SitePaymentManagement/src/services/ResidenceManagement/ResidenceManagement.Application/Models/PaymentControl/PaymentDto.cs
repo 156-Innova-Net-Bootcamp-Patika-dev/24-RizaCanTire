@@ -9,6 +9,7 @@ namespace ResidenceManagement.Application.Models.PaymentControl
     public class PaymentDto
     {
         public int Fee { get; set; }
-        public DateTime Period { get; set; }
+        public int Year { get; set; }
+        public int Month { get; set; }
     }
 }

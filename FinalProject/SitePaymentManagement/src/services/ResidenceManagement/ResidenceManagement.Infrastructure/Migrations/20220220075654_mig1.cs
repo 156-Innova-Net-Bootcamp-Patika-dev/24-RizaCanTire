@@ -221,10 +221,11 @@ namespace ResidenceManagement.Infrastructure.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    SenderId = table.Column<int>(type: "INTEGER", nullable: true),
-                    ReceiverId = table.Column<int>(type: "INTEGER", nullable: true),
+                    SenderId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ReceiverId = table.Column<int>(type: "INTEGER", nullable: false),
                     Title = table.Column<string>(type: "TEXT", nullable: true),
-                    Content = table.Column<string>(type: "TEXT", nullable: true)
+                    Content = table.Column<string>(type: "TEXT", nullable: true),
+                    IsRead = table.Column<bool>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -234,13 +235,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         column: x => x.ReceiverId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Messages_AspNetUsers_SenderId",
                         column: x => x.SenderId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -365,12 +366,27 @@ namespace ResidenceManagement.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "CarPlate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NationalId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 1, 0, null, "c4a7eae9-08b9-49fc-82d2-6360087c159e", "admin@admin.com", false, "Rıza Can", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEGKDOz3LeWhbkGalze+2hF/NZS/BN8/8CMbxkRAgb3C4EDc53pvAuOiyC3wPv8oqTA==", null, false, null, false, null });
+                values: new object[] { 1, 0, null, "22c636c9-5ddf-46fc-8820-30cd7f123003", "admin@admin.com", false, "Rıza Can", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEDRAC7otUI3hrZf6NxgmDmhvoTBqDMOA2T6bTpLcnmFdMXvz0DAI8r85GbPWe2tPZg==", null, false, null, false, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "CarPlate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NationalId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 2, 0, null, "028cebd4-27cb-47e0-98f9-c17f7e06c232", "ahmet@admin.com", false, "Ahmet", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEHha4m1suwoke0bIa3GqukWiynxVd1sIyv3QcjrW+5Gw92qbWSmR95S6hNPcaDPYtQ==", null, false, null, false, null });
+                values: new object[] { 2, 0, null, "48bbf509-1663-4b3e-8ab8-9fa43586f621", "ahmet@admin.com", false, "Ahmet", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEK00xfB4yHutgt8+ji4K0KtNZWZXXRUYfJDkMzsF5uFkaPK0pv8+4VFrbmaNYIk6JQ==", null, false, null, false, null });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "CarPlate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NationalId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { 3, 0, null, "bf33fc0b-2388-4317-97ea-3bc725d64587", "d@d.com", false, "Demiralp", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEIM5G6MKAP6n9t0aCSdko3zf1kdy5qedjFodCjq9oAvuKmqcuutzF8CDwO/CaB25qg==", null, false, null, false, null });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "CarPlate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NationalId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { 4, 0, null, "c1e14782-e7f4-4352-b7ab-d0833bd8511b", "y@y.com", false, "Yasemin", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAECjl4hKjiGcPOqTAC5X+RQ7Sp99OCw57ELC63JDT1Zhqhjj5hpOY8ElLyU3O+2XFEA==", null, false, null, false, null });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "CarPlate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NationalId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { 5, 0, null, "5dfcd978-d427-4f13-8570-0f99e97a7ec9", "h@h.com", false, "Hasibe", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEHdvRoE4DjlgYVuTd+xvgmMms5gj2Fuh8Uoi8fzxtYIieIIIQQbiQ2DVcVBV9PtcDQ==", null, false, null, false, null });
 
             migrationBuilder.InsertData(
                 table: "ResidenceTypes",
@@ -421,6 +437,21 @@ namespace ResidenceManagement.Infrastructure.Migrations
                 table: "AspNetUserRoles",
                 columns: new[] { "RoleId", "UserId", "Discriminator" },
                 values: new object[] { 2, 2, "UserRole" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId", "Discriminator" },
+                values: new object[] { 2, 3, "UserRole" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId", "Discriminator" },
+                values: new object[] { 2, 4, "UserRole" });
+
+            migrationBuilder.InsertData(
+                table: "AspNetUserRoles",
+                columns: new[] { "RoleId", "UserId", "Discriminator" },
+                values: new object[] { 2, 5, "UserRole" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

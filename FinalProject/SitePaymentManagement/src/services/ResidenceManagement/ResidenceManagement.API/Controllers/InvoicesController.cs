@@ -1,15 +1,11 @@
-﻿using AutoMapper;
-using MediatR;
+﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using ResidenceManagement.Application.Contracts.Repositories;
 using ResidenceManagement.Application.Features.Commands.Invoices.AddInvoice;
 using ResidenceManagement.Application.Features.Commands.Invoices.AddInvoiceRange;
 using ResidenceManagement.Application.Features.Commands.Invoices.DeleteInvoice;
 using ResidenceManagement.Application.Features.Commands.Invoices.UpdateInvoice;
-using ResidenceManagement.Application.Models.Invoices;
-using System.Collections.Generic;
+using ResidenceManagement.Application.Features.Queries.Invoices.GetInvoices;
 using System.Threading.Tasks;
 
 namespace ResidenceManagement.API.Controllers
@@ -21,21 +17,16 @@ namespace ResidenceManagement.API.Controllers
     public class InvoicesController : ControllerBase
     {
         private IMediator _mediator;
-        private readonly IInvoiceRepository _invoiceRepository;
-        private readonly IMapper _mapper;
 
-        public InvoicesController(IMediator mediator, IInvoiceRepository invoiceRepository, IMapper mapper)
+        public InvoicesController(IMediator mediator)
         {
             _mediator = mediator;
-            _invoiceRepository = invoiceRepository;
-            _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var list = await _invoiceRepository.GetAllAsync();
-            return Ok(_mapper.Map<IReadOnlyList<InvoiceDto>>(list));
+            return Ok(await _mediator.Send(new GetInvoiceListQuery()));
         }
 
         [HttpPost]
@@ -59,7 +50,7 @@ namespace ResidenceManagement.API.Controllers
 
         [HttpPost]
         [Route("AddRange")]
-        public IActionResult AddRand([FromQuery] AddInvoiceRangeCommand request)
+        public IActionResult AddRange([FromQuery] AddInvoiceRangeCommand request)
         {
             return Ok(_mediator.Send(request));
         }

@@ -12,9 +12,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace ResidenceManagement.Application.Features.Commands.DuesController.AddDues
+namespace ResidenceManagement.Application.Features.Commands.DuesControl.AddDues
 {
-    public class AddDuesCommandHandler : PaymentDto, IRequestHandler<AddDuesCommand, BaseResponse>
+    public class AddDuesCommandHandler : IRequestHandler<AddDuesCommand, BaseDataResponse<PaymentDto>>
     {
         private IDuesRepository _duesRepository;
         private readonly IMapper _mapper;
@@ -25,14 +25,18 @@ namespace ResidenceManagement.Application.Features.Commands.DuesController.AddDu
             _mapper = mapper;
         }
 
-        public async Task<BaseResponse> Handle(AddDuesCommand request, CancellationToken cancellationToken)
+        public async Task<BaseDataResponse<PaymentDto>> Handle(AddDuesCommand request, CancellationToken cancellationToken)
         {
-            var newDues = _mapper.Map<Dues>(request);
-            var result = await _duesRepository.AddAsync(newDues);
-            if (result == null)
-                throw new NotFoundException(request);
+            var checkDues = await _duesRepository.GetAsync(r => r.Year == request.Year && r.Month == request.Month);
 
-            return new BaseResponse(true);
+            if (checkDues != null)
+                throw new NotEmptyException(checkDues.Year.ToString() + " " + checkDues.Month.ToString());
+
+
+            await _duesRepository.AddAsync(_mapper.Map<Dues>(request));
+
+            return new BaseDataResponse<PaymentDto>(true, _mapper.Map<PaymentDto>(request)); ;
         }
+
     }
 }

@@ -10,6 +10,7 @@ namespace ResidenceManagement.Application.Contracts.Repositories.Commons
 {
     public interface IRepositoryBase<T> where T : EntityBase
     {
+       
         Task<IReadOnlyList<T>> GetAllAsync();
 
         Task<T> GetAsync(Expression<Func<T, bool>> predicate, string includeString = null, params string[] includeStrings);

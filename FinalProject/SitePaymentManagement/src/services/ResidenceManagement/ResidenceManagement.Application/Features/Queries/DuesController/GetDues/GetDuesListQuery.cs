@@ -7,10 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ResidenceManagement.Application.Features.Commands.DuesController.AddDues
+namespace ResidenceManagement.Application.Features.Queries.DuesController.GetDues
 {
-    public class AddDuesCommand :PaymentDto, IRequest<BaseResponse>
+    public class GetDuesListQuery : IRequest<BaseDataResponse<IReadOnlyList<PaymentDto>>>
     {
-
     }
 }

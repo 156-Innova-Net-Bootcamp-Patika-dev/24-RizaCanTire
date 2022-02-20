@@ -1,52 +1,61 @@
-﻿using AutoMapper;
-using MediatR;
-using Microsoft.AspNetCore.Http;
+﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ResidenceManagement.Application.Contracts.Repositories;
 using ResidenceManagement.Application.Features.Commands.ResidenceInvoices.AddResidenceInvoice;
 using ResidenceManagement.Application.Features.Commands.ResidenceInvoices.AddResidenceInvoiceRange;
 using ResidenceManagement.Application.Features.Commands.ResidenceInvoices.DeleteResidenceInvoice;
 using ResidenceManagement.Application.Features.Commands.ResidenceInvoices.UpdateResidenceInvoice;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using ResidenceManagement.Application.Features.Queries.ResidenceInvoices.GetResidenceInvoices;
+using ResidenceManagement.Application.Features.Queries.ResidenceInvoices.GetResidenceInvoicesByUser;
 
 namespace ResidenceManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ResidenceInvoicesController : ControllerBase
     {
         private IMediator _mediator;
-        private readonly IResidenceInvoiceRepository _invoiceRepository;
-        private readonly IMapper _mapper;
 
-        public ResidenceInvoicesController(IMapper mapper, IResidenceInvoiceRepository invoiceRepository, IMediator mediator)
+        public ResidenceInvoicesController(IMediator mediator)
         {
-            _mapper = mapper;
-            _invoiceRepository = invoiceRepository;
             _mediator = mediator;
         }
 
+
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            var list = await _invoiceRepository.GetAllAsync();
-            return Ok((list));
+            return Ok(_mediator.Send(new GetResidenceInvoiceListQuery()));
+        }
+        [HttpGet]
+        [Route("GetByUser")]
+
+        public IActionResult GetByUser([FromQuery] GetResidenceInvoiceByUserQuery request)
+        {
+
+            return Ok(_mediator.Send(request));
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Add([FromQuery] AddResidenceInvoiceCommand request)
         {
             return Ok(_mediator.Send(request));
         }
 
         [HttpDelete]
-        public IActionResult Add([FromQuery] DeleteResidenceInvoiceCommand request)
+        [Authorize(Roles = "Admin")]
+
+        public IActionResult Delete([FromQuery] DeleteResidenceInvoiceCommand request)
         {
             return Ok(_mediator.Send(request));
         }
 
         [HttpPut]
+        [Authorize(Roles = "Admin")]
+
         public IActionResult Update([FromQuery] UpdateResidenceInvoiceCommand request)
         {
 
@@ -55,7 +64,9 @@ namespace ResidenceManagement.API.Controllers
 
         [HttpPost]
         [Route("AddRange")]
-        public IActionResult AddRand([FromQuery] AddRangeResidenceInvoiceCommand request)
+        [Authorize(Roles = "Admin")]
+
+        public IActionResult AddRange([FromQuery] AddRangeResidenceInvoiceCommand request)
         {
             return Ok(_mediator.Send(request));
         }

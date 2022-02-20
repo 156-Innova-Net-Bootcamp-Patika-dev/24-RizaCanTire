@@ -12,8 +12,6 @@ namespace ResidenceManagement.Application.Features.Commands.ResidenceInvoices.Up
     public class UpdateResidenceInvoiceCommand : IRequest<BaseDataResponse<ResidenceInvoice>>
     {
         public int Id { get; set; }
-        public int InvoiceId { get; set; }
-        public int UserResidenceId { get; set; }
         public bool IsPaid { get; set; }
     }
 }

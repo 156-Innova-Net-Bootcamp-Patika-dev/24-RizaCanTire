@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ResidenceManagement.Application.FluentValidations.Users
 {
-    public class SignInUserValidator : AbstractValidator<SignInUserCommandQuery>
+    public class SignInUserValidator : AbstractValidator<SignInUserQuery>
     {
         public SignInUserValidator()
         {

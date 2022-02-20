@@ -26,7 +26,7 @@ namespace ResidenceManagement.Application.Features.Commands.ResidenceInvoices.Ad
 
         public async Task<BaseResponse> Handle(AddResidenceInvoiceCommand request, CancellationToken cancellationToken)
         {
-            var check =await _residenceInvoiceRepository.GetAsync(r=>r.InvoiceId == request.InvoiceId);
+            var check =await _residenceInvoiceRepository.GetAsync(r=>r.InvoiceId == request.InvoiceId && r.UserResidenceId == request.UserResidenceId);
             if (check != null)
                 throw new NotEmptyException(request.InvoiceId.ToString());
             await _residenceInvoiceRepository.AddAsync(_mapper.Map<ResidenceInvoice>(request));

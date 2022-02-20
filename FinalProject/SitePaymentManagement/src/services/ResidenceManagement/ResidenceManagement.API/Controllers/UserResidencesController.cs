@@ -73,5 +73,15 @@ namespace ResidenceManagement.API.Controllers
 
         }
 
+        [HttpGet]
+        [Route("GetByUser")]
+
+        public IActionResult GetByUser([FromQuery] GetResidenceByResidentQuery request)
+        {
+            var currentUserId = User.GetUserId();
+            request.UserId = int.Parse(currentUserId);
+            return Ok(_mediator.Send(request));
+        }
+
     }
 }

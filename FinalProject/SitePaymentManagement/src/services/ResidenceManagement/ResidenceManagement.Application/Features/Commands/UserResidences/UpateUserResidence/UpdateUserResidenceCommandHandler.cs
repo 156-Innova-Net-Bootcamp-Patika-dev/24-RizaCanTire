@@ -33,6 +33,10 @@ namespace ResidenceManagement.Application.Features.Commands.UserResidences.Upate
             {
                 throw new NotFoundException(nameof(UserResidence), request.Id);
             }
+            var checkExist = await _userResidenceRepository.GetAsync(r=>r.ResidenceId == request.ResidenceId);
+            if (checkExist != null)
+                throw new NotEmptyException(request.Id.ToString());
+
             _mapper.Map(request, updateUserResidence, typeof(UpdateUserResidenceCommand), typeof(UserResidence));
 
             await _userResidenceRepository.UpdateAsync(updateUserResidence);

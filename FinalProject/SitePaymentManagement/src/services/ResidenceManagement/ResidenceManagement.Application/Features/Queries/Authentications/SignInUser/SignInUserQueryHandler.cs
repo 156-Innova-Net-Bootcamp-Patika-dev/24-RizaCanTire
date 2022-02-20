@@ -1,24 +1,23 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
+using ResidenceManagement.Application.Exceptions;
 using ResidenceManagement.Application.Models.Users;
 using ResidenceManagement.Domain.Entities.Auths;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ResidenceManagement.Application.Features.Queries.Authentications.SignInUser
 {
-    public class SignInUserCommandHandler : IRequestHandler<SignInUserCommandQuery, UserModel>
+    public class SignInUserQueryHandler : IRequestHandler<SignInUserQuery, UserModel>
     {
         private readonly UserManager<User> _userManager;
         private readonly IMapper _mapper;
         private readonly RoleManager<Role> _roleManager;
 
-        public SignInUserCommandHandler(UserManager<User> userManager,
+        public SignInUserQueryHandler(UserManager<User> userManager,
            IMapper mapper,
            RoleManager<Role> roleManager)
         {
@@ -26,7 +25,7 @@ namespace ResidenceManagement.Application.Features.Queries.Authentications.SignI
             _mapper = mapper;
             _roleManager = roleManager;
         }
-        public async Task<UserModel> Handle(SignInUserCommandQuery request, CancellationToken cancellationToken)
+        public async Task<UserModel> Handle(SignInUserQuery request, CancellationToken cancellationToken)
         {
             var user = _userManager.Users.SingleOrDefault(u => u.Email == request.Email);
 
@@ -41,6 +40,10 @@ namespace ResidenceManagement.Application.Features.Queries.Authentications.SignI
             {
                 userModel = _mapper.Map<UserModel>(user);
                 userModel.Roles = await _userManager.GetRolesAsync(user);
+            }
+            else
+            {
+                throw new ApplicationException("Şifre hatalı.");
             }
 
             return userModel;

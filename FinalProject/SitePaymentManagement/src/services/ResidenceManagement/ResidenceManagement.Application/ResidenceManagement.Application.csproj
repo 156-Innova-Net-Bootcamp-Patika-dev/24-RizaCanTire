@@ -23,11 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Commands\DuesController\DeleteDues\" />
-    <Folder Include="Features\Commands\DuesController\UpdateDues\" />
-    <Folder Include="FluentValidations\DuesControl\" />
     <Folder Include="Models\DuesControl\" />
-    <Folder Include="Models\ResidenceInvoices\" />
   </ItemGroup>
 
 </Project>

@@ -51,7 +51,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPost("SignIn")]
-        public async Task<IActionResult> SignIn([FromQuery] SignInUserCommandQuery signInUserCommandQuery)
+        public async Task<IActionResult> SignIn([FromQuery] SignInUserQuery signInUserCommandQuery)
         {
             var query = signInUserCommandQuery;
             var userModel = await _mediator.Send(query);

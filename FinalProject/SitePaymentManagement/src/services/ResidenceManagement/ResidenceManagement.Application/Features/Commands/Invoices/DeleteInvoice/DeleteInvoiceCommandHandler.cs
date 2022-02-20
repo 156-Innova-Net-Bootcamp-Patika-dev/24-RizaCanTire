@@ -14,12 +14,10 @@ namespace ResidenceManagement.Application.Features.Commands.Invoices.DeleteInvoi
 {
     public class DeleteInvoiceCommandHandler : IRequestHandler<DeleteInvoiceCommand, BaseResponse>
     {
-        private readonly IMapper _mapper;
         private readonly IInvoiceRepository _invoiceRepository;
 
         public DeleteInvoiceCommandHandler(IMapper mapper, IInvoiceRepository invoiceRepository)
         {
-            _mapper = mapper;
             _invoiceRepository = invoiceRepository;
         }
 

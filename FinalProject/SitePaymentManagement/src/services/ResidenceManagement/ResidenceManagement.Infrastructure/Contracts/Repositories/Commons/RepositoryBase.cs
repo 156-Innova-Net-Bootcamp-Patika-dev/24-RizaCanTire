@@ -21,6 +21,7 @@ namespace ResidenceManagement.Infrastructure.Contracts.Repositories.Commons
             _dbContext = dbContext;
         }
 
+
         public async Task<T> AddAsync(T entity)
         {
             _dbContext.Set<T>().Add(entity);

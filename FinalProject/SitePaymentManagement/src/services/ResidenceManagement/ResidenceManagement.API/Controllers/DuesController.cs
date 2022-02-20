@@ -2,7 +2,11 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ResidenceManagement.Application.Contracts.Repositories;
-using ResidenceManagement.Application.Features.Commands.DuesController.AddDues;
+using ResidenceManagement.Application.Features.Commands.DuesControl.AddDues;
+using ResidenceManagement.Application.Features.Commands.DuesControl.AddDuesRange;
+using ResidenceManagement.Application.Features.Commands.DuesControl.DeleteDues;
+using ResidenceManagement.Application.Features.Commands.DuesControl.UpdateDues;
+using ResidenceManagement.Application.Features.Queries.DuesController.GetDues;
 using System.Threading.Tasks;
 
 namespace ResidenceManagement.API.Controllers
@@ -12,11 +16,9 @@ namespace ResidenceManagement.API.Controllers
     public class DuesController : ControllerBase
     {
         private readonly IMediator _mediator;
-        private IDuesRepository _repository;
-        public DuesController(IMediator mediator, IDuesRepository repository)
+        public DuesController(IMediator mediator)
         {
             _mediator = mediator;
-            _repository = repository;
         }
 
         [HttpPost]
@@ -25,9 +27,28 @@ namespace ResidenceManagement.API.Controllers
             return Ok(_mediator.Send(request));
         }
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
-            return Ok(await _repository.GetAllAsync());
+            return Ok(_mediator.Send(new GetDuesListQuery()));
+        }
+
+        [HttpDelete]
+        public IActionResult Delete([FromQuery] DeleteDuesCommand request)
+        {
+            return Ok(_mediator.Send(request));
+        }
+
+        [HttpPut]
+        public IActionResult Update([FromQuery] UpdateDuesCommand request)
+        {
+            return Ok(_mediator.Send(request));
+        }
+
+        [HttpPost]
+        [Route("AddRange")]
+        public IActionResult AddRange([FromQuery] AddDuesRangeCommand request)
+        {
+            return Ok(_mediator.Send(request));
         }
     }
 }

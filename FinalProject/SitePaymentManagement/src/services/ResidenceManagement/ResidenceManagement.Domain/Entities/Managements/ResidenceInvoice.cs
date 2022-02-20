@@ -1,9 +1,4 @@
 ﻿using ResidenceManagement.Domain.Commons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ResidenceManagement.Domain.Entities.Managements
 {
@@ -13,7 +8,6 @@ namespace ResidenceManagement.Domain.Entities.Managements
         public Invoice Invoice { get; set; }
         public int UserResidenceId { get; set; }
         public UserResidence UserResidence { get; set; }
-
         public bool IsPaid { get; set; }
 
     }

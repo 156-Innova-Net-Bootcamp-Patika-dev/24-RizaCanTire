@@ -12,7 +12,6 @@ namespace ResidenceManagement.Application.Features.Queries.UserResidences.GetUse
     public class GetResidenceByResidentQuery : IRequest<List<UserResidenceDto>>
     {
         public int UserId { get; set; }
-        public int ResidenceId { get; set; }
-        public int ResidentTypeId { get; set; }
+
     }
 }

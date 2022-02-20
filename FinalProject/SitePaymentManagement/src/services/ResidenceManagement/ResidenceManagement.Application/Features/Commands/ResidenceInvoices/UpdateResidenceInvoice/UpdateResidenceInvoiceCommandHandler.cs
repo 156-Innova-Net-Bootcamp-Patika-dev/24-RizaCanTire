@@ -29,9 +29,10 @@ namespace ResidenceManagement.Application.Features.Commands.ResidenceInvoices.Up
             var checkInvoice = await _residenceInvoiceRepository.GetByIdAsync(request.Id);
             if (checkInvoice == null)
                 throw new NotFoundException(request);
-            var response = _mapper.Map<ResidenceInvoice>(request);
-            await _residenceInvoiceRepository.UpdateAsync(response);
-            return new BaseDataResponse<ResidenceInvoice>(true, response);
+            
+            _mapper.Map(request, checkInvoice, typeof(UpdateResidenceInvoiceCommand), typeof(ResidenceInvoice));
+            await _residenceInvoiceRepository.UpdateAsync(checkInvoice);
+            return new BaseDataResponse<ResidenceInvoice>(true, checkInvoice);
         }
     }
 }
