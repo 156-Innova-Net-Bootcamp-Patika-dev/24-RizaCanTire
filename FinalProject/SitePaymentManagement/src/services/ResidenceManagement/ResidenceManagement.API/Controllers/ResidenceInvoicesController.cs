@@ -1,12 +1,14 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using ResidenceManagement.Application.Contracts.Repositories;
 using ResidenceManagement.Application.Features.Commands.ResidenceInvoices.AddResidenceInvoice;
 using ResidenceManagement.Application.Features.Commands.ResidenceInvoices.AddResidenceInvoiceRange;
 using ResidenceManagement.Application.Features.Commands.ResidenceInvoices.DeleteResidenceInvoice;
 using ResidenceManagement.Application.Features.Commands.ResidenceInvoices.UpdateResidenceInvoice;
 using ResidenceManagement.Application.Features.Queries.ResidenceInvoices.GetResidenceInvoices;
 using ResidenceManagement.Application.Features.Queries.ResidenceInvoices.GetResidenceInvoicesByUser;
+using ResidenceManagement.Infrastructure.Security.Extensions;
 
 namespace ResidenceManagement.API.Controllers
 {
@@ -16,10 +18,12 @@ namespace ResidenceManagement.API.Controllers
     public class ResidenceInvoicesController : ControllerBase
     {
         private IMediator _mediator;
+        private IResidenceInvoiceRepository _repository;
 
-        public ResidenceInvoicesController(IMediator mediator)
+        public ResidenceInvoicesController(IMediator mediator, IResidenceInvoiceRepository repository)
         {
             _mediator = mediator;
+            _repository = repository;
         }
 
 
@@ -29,11 +33,19 @@ namespace ResidenceManagement.API.Controllers
             return Ok(_mediator.Send(new GetResidenceInvoiceListQuery()));
         }
         [HttpGet]
+        [Route("GetAllDetails")]
+        public IActionResult GetAllDetails()
+        {
+            return Ok(_repository.GetAllDetails());
+        }
+        
+       [HttpGet]
         [Route("GetByUser")]
 
         public IActionResult GetByUser([FromQuery] GetResidenceInvoiceByUserQuery request)
         {
-
+            var currentUser = User.GetUserId();
+            request.UserId = int.Parse(currentUser);
             return Ok(_mediator.Send(request));
         }
 

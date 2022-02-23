@@ -12,6 +12,8 @@ namespace ResidenceManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
+
     public class ResidenceDuesController : ControllerBase
     {
         private IMediator _mediator;
@@ -31,9 +33,12 @@ namespace ResidenceManagement.API.Controllers
         }
         [HttpGet]
         [Route("GetByUser")]
+        [Authorize]
+
 
         public IActionResult GetByUser([FromQuery] GetResidenceDuesByUserQuery request)
         {
+            
 
             return Ok(_mediator.Send(request));
         }

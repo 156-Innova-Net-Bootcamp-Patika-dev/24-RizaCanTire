@@ -27,14 +27,9 @@ namespace ResidenceManagement.Application.Features.Queries.Residences.GetUserRes
 
         public async Task<IReadOnlyList<UserResidenceDto>> Handle(GetUserResidenceListQuery request, CancellationToken cancellationToken)
         {
-
-            Includes.Add(a => a.Residence);
-            Includes.Add(b => b.User);
-            Includes.Add(c => c.Residence.ResidenceType);
-            Includes.Add(d => d.ResidentType);
-
-
-            var list = await _userResidenceRepository.GetAllAsync(includes: Includes);
+            
+            string[] includes = { "Residence" , "User", "Residence.ResidenceType", "ResidentType" };
+            var list = await _userResidenceRepository.GetAllAsync(includeStrings:includes);
             return _mapper.Map<IReadOnlyList<UserResidenceDto>>(list);
         }
     }

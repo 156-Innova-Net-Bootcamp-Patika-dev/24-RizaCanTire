@@ -1,4 +1,5 @@
-﻿using ResidenceManagement.Application.Contracts.Repositories.Commons;
+﻿using Microsoft.EntityFrameworkCore.Query;
+using ResidenceManagement.Application.Contracts.Repositories.Commons;
 using ResidenceManagement.Application.Models.UserResidences;
 using ResidenceManagement.Domain.Entities.Managements;
 using System;
@@ -14,7 +15,8 @@ namespace ResidenceManagement.Application.Contracts.Repositories
     {
         Task<UserResidenceDto> GetUserResidenceDetail();
 
-        Task<IReadOnlyList<UserResidenceDto>> GetAllUserResidenceDetail(Expression<Func<UserResidence, bool>> predicate = null);
+        //Task<IReadOnlyList<UserResidenceDto>> GetAllUserResidenceDetail(Expression<Func<UserResidence, bool>> predicate = null);
+       
 
 
     }

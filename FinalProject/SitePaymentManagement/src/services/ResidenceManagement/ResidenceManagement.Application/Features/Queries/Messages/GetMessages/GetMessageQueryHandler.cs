@@ -30,9 +30,9 @@ namespace ResidenceManagement.Application.Features.Queries.Messages.GetMessages
             
             var currentMessages = new GetMessageListDto();
             var getSendMessageList =await _messageRepository.GetAllAsync(
-                                        r => r.SenderId == request.UserId, includeStrings: includes);
+                                        r => r.SenderId == request.UserId,includeStrings:includes);
             var getReceiveMessageList = await _messageRepository.GetAllAsync(r => 
-                                        r.ReceiverId == request.UserId, includeStrings: includes);
+                                        r.ReceiverId == request.UserId,includeStrings:includes);
 
             currentMessages.RecievingList = _mapper.Map<IReadOnlyList<MessageDto>>(getReceiveMessageList);
             currentMessages.SendingList = _mapper.Map<IReadOnlyList<MessageDto>>(getSendMessageList);

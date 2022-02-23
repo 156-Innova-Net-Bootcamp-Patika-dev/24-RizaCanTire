@@ -9,5 +9,7 @@ namespace ResidenceManagement.Domain.Entities.Managements
 {
     public class Dues : PaymentBase
     {
+        public IEnumerable<ResidenceDues> ResidenceDuesses { get; set; }
+
     }
 }

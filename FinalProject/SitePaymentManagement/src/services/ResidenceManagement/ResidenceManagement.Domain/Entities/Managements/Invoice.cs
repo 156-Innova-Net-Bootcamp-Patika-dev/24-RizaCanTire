@@ -9,7 +9,7 @@ namespace ResidenceManagement.Domain.Entities.Managements
 {
     public class Invoice : PaymentBase
     {
-
+        public IEnumerable<ResidenceInvoice> ResidenceInvoices { get; set; }
 
     }
 }

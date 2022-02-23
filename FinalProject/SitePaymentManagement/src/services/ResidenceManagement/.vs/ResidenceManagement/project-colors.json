@@ -25,7 +25,47 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "42b3d651-2e9e-489f-b8a6-15708cb5abee": {
+      "ProjectGuid": "42b3d651-2e9e-489f-b8a6-15708cb5abee",
+      "DisplayName": "BankCardDatabase",
+      "ColorIndex": 4
+    },
+    "4ee1144b-d303-415a-9827-add1888fa8d5": {
+      "ProjectGuid": "4ee1144b-d303-415a-9827-add1888fa8d5",
+      "DisplayName": "BankCardDb",
+      "ColorIndex": 5
+    },
+    "dee37314-e519-4012-a7fc-47916ee79948": {
+      "ProjectGuid": "dee37314-e519-4012-a7fc-47916ee79948",
+      "DisplayName": "PaymentService.API",
+      "ColorIndex": 6
+    },
+    "03b19688-2a73-47e8-8aff-87a626ca078c": {
+      "ProjectGuid": "03b19688-2a73-47e8-8aff-87a626ca078c",
+      "DisplayName": "ResidenceManagement.WEBAPP",
+      "ColorIndex": 7
+    },
+    "1d248f16-821a-4ac1-85b4-393fda3e6a64": {
+      "ProjectGuid": "1d248f16-821a-4ac1-85b4-393fda3e6a64",
+      "DisplayName": "ResidenceManagement.MessageContracts",
+      "ColorIndex": 8
+    },
+    "369a0028-4c90-41b1-baa0-10d8cd30879d": {
+      "ProjectGuid": "369a0028-4c90-41b1-baa0-10d8cd30879d",
+      "DisplayName": "ConsoleApp1",
+      "ColorIndex": 9
+    },
+    "cd5822db-2df9-46fe-bae6-5a6782e6543d": {
+      "ProjectGuid": "cd5822db-2df9-46fe-bae6-5a6782e6543d",
+      "DisplayName": "ResidenceManagement.WEBUI",
+      "ColorIndex": 10
+    },
+    "befd4187-4b56-4bb9-8154-08024b0f5a9f": {
+      "ProjectGuid": "befd4187-4b56-4bb9-8154-08024b0f5a9f",
+      "DisplayName": "ResidenceManagement.WEBAPI",
+      "ColorIndex": 11
     }
   },
-  "NextColorIndex": 4
+  "NextColorIndex": 12
 }

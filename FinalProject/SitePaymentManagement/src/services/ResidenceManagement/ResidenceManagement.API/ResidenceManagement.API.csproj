@@ -18,5 +18,4 @@
     <ProjectReference Include="..\ResidenceManagement.Application\ResidenceManagement.Application.csproj" />
     <ProjectReference Include="..\ResidenceManagement.Infrastructure\ResidenceManagement.Infrastructure.csproj" />
   </ItemGroup>
-
 </Project>

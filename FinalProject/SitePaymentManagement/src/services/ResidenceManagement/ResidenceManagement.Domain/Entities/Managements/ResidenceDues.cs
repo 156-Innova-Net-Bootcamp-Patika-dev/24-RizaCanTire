@@ -13,6 +13,7 @@ namespace ResidenceManagement.Domain.Entities.Managements
         public Dues Dues { get; set; }
         public int UserResidenceId { get; set; }
         public UserResidence UserResidence { get; set; }
-        private bool isPaid;
+        public bool IsPaid { get; set; }
+        
     }
 }

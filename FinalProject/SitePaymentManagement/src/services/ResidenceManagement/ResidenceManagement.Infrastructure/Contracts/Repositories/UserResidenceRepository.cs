@@ -26,14 +26,14 @@ namespace ResidenceManagement.Infrastructure.Contracts.Repositories
         public async Task<IReadOnlyList<UserResidenceDto>> GetAllUserResidenceDetail(Expression<Func<UserResidence, bool>> predicate = null)
         {
 
-            var result = await base.GetAllAsync(predicate,includeStrings: includes);
+            var result = await base.GetAllAsync(predicate, includeStrings: includes);
 
             return _mapper.Map<IReadOnlyList<UserResidenceDto>>(result);
         }
 
         public async Task<UserResidenceDto> GetUserResidenceDetail()
         {
-            var result= await base.GetAsync(includeStrings: includes);
+            var result = await base.GetAsync(includeStrings: includes);
             return _mapper.Map<UserResidenceDto>(result);
         }
     }

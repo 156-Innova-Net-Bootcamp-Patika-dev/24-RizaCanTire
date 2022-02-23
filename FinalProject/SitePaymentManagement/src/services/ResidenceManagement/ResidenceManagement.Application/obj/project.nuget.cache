@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "LK9pRo/8tkyl6h4h3Ln4kDEzEGSlccb9bSU9zRwfrR6e0WDkIC5zhK+WzMRf3duMKTCJLSoS5YRv4urD1l2ZiQ==",
+  "dgSpecHash": "nlOpc4sVTpy9ou+84t67lg5ZUbJwZqYFOsxDEkQePCZSs1iRuEc/kc9GfeiyGMjRjjrz/SxfjW0k4JES4o3amw==",
   "success": true,
   "projectFilePath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Application\\ResidenceManagement.Application.csproj",
   "expectedPackageFiles": [
@@ -47,6 +47,7 @@
     "C:\\Users\\riza_\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
+    "C:\\Users\\riza_\\.nuget\\packages\\rabbitmq.client\\5.1.2\\rabbitmq.client.5.1.2.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.3\\swashbuckle.aspnetcore.swagger.6.2.3.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.3\\swashbuckle.aspnetcore.swaggergen.6.2.3.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\system.buffers\\4.5.0\\system.buffers.4.5.0.nupkg.sha512",

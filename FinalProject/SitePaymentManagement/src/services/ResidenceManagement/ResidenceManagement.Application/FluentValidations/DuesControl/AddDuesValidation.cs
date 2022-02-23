@@ -12,9 +12,9 @@ namespace ResidenceManagement.Application.FluentValidations.DuesControl
     {
         public AddDuesValidation()
         {
-            RuleFor(r=>r.Fee).GreaterThan(10);
-            RuleFor(r=>r.Year).GreaterThan(1900);
-            RuleFor(r=>r.Month).LessThan(13).GreaterThan(0);
+            RuleFor(r=>r.Fee).NotEmpty().NotNull().GreaterThan(10);
+            RuleFor(r=>r.Year).NotEmpty().NotNull().GreaterThan(1900);
+            RuleFor(r=>r.Month).NotEmpty().NotNull().LessThan(13).GreaterThan(0);
         }
     }
 }

@@ -10,14 +10,13 @@ namespace ResidenceManagement.Application.Contracts.Repositories.Commons
 {
     public interface IRepositoryBase<T> where T : EntityBase
     {
-       
-        Task<IReadOnlyList<T>> GetAllAsync();
 
-        Task<T> GetAsync(Expression<Func<T, bool>> predicate, string includeString = null, params string[] includeStrings);
+        Task<IReadOnlyList<T>> GetAllAsync();
+        Task<T> GetAsync(Expression<Func<T, bool>> predicate, params string[] includeStrings);
+        Task<T> GetAsync(Expression<Func<T, bool>> predicate =null, string includeString = null, params string[] includeStrings);
 
         Task<IReadOnlyList<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null,
                                        Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null,
-                                       List<Expression<Func<T, object>>> includes = null,
                                        bool disableTracking = true,
                                        string includeString = null, params string[] includeStrings);
         Task<T> GetByIdAsync(int id);

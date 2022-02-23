@@ -245,13 +245,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "22c636c9-5ddf-46fc-8820-30cd7f123003",
+                            ConcurrencyStamp = "2649a520-bbef-4069-8ab4-9e3d81b80d9b",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             FirstName = "Rıza Can",
                             LastName = "Tire",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEDRAC7otUI3hrZf6NxgmDmhvoTBqDMOA2T6bTpLcnmFdMXvz0DAI8r85GbPWe2tPZg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEAk5dobtZ6fMroLZyuNPNvj3LGg6PvQG+4oxMdo3R8fd8vHjbrKsQ111LqsNf5gkGA==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         },
@@ -259,13 +259,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "48bbf509-1663-4b3e-8ab8-9fa43586f621",
+                            ConcurrencyStamp = "0d216dc0-2ea5-4255-bfc6-034b53e3e478",
                             Email = "ahmet@admin.com",
                             EmailConfirmed = false,
                             FirstName = "Ahmet",
                             LastName = "Tire",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEK00xfB4yHutgt8+ji4K0KtNZWZXXRUYfJDkMzsF5uFkaPK0pv8+4VFrbmaNYIk6JQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELQHNgKReSn/4oSDPI//ZaeU3SJZdGFYVpzgykOF/x8WkNxNb5HGmdGcYq1GniHlEQ==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         },
@@ -273,13 +273,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "bf33fc0b-2388-4317-97ea-3bc725d64587",
+                            ConcurrencyStamp = "a401f177-7f34-4819-94b1-a2edbc7c7376",
                             Email = "d@d.com",
                             EmailConfirmed = false,
                             FirstName = "Demiralp",
                             LastName = "Tire",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEIM5G6MKAP6n9t0aCSdko3zf1kdy5qedjFodCjq9oAvuKmqcuutzF8CDwO/CaB25qg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG8ZaeGXbQccIr6RUDKfa8VsT+49bsdFeZ7ub97orDzy9kckf06+GmIPdSQ8e92dLg==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         },
@@ -287,13 +287,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         {
                             Id = 4,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c1e14782-e7f4-4352-b7ab-d0833bd8511b",
+                            ConcurrencyStamp = "c13289a1-249a-4ca8-9b7d-2e5308c1bdee",
                             Email = "y@y.com",
                             EmailConfirmed = false,
                             FirstName = "Yasemin",
                             LastName = "Tire",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAECjl4hKjiGcPOqTAC5X+RQ7Sp99OCw57ELC63JDT1Zhqhjj5hpOY8ElLyU3O+2XFEA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEBAB+gkxSfmY+Eveq0g6AOjtSp5kz3WguUb+mMqGVbZCQzA4waC59tREIPjqk4YRAQ==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         },
@@ -301,13 +301,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         {
                             Id = 5,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5dfcd978-d427-4f13-8570-0f99e97a7ec9",
+                            ConcurrencyStamp = "ebf000a0-c168-434e-8e91-a887781f9477",
                             Email = "h@h.com",
                             EmailConfirmed = false,
                             FirstName = "Hasibe",
                             LastName = "Tire",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEHdvRoE4DjlgYVuTd+xvgmMms5gj2Fuh8Uoi8fzxtYIieIIIQQbiQ2DVcVBV9PtcDQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEN9by1n+ygWG+kQ4jn2SwCpl/CwPE06eFNz+wigl0voC09aO1OR5NiglmV8ETb79Q==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         });
@@ -418,6 +418,9 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("DuesId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<bool>("IsPaid")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("UserResidenceId")
@@ -672,13 +675,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
             modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.ResidenceDues", b =>
                 {
                     b.HasOne("ResidenceManagement.Domain.Entities.Managements.Dues", "Dues")
-                        .WithMany()
+                        .WithMany("ResidenceDuesses")
                         .HasForeignKey("DuesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("ResidenceManagement.Domain.Entities.Managements.UserResidence", "UserResidence")
-                        .WithMany("ResidenceDues")
+                        .WithMany("ResidenceDuesses")
                         .HasForeignKey("UserResidenceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -691,7 +694,7 @@ namespace ResidenceManagement.Infrastructure.Migrations
             modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.ResidenceInvoice", b =>
                 {
                     b.HasOne("ResidenceManagement.Domain.Entities.Managements.Invoice", "Invoice")
-                        .WithMany()
+                        .WithMany("ResidenceInvoices")
                         .HasForeignKey("InvoiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -743,6 +746,16 @@ namespace ResidenceManagement.Infrastructure.Migrations
                     b.Navigation("UserResidences");
                 });
 
+            modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.Dues", b =>
+                {
+                    b.Navigation("ResidenceDuesses");
+                });
+
+            modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.Invoice", b =>
+                {
+                    b.Navigation("ResidenceInvoices");
+                });
+
             modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.Residence", b =>
                 {
                     b.Navigation("UserResidences");
@@ -755,7 +768,7 @@ namespace ResidenceManagement.Infrastructure.Migrations
 
             modelBuilder.Entity("ResidenceManagement.Domain.Entities.Managements.UserResidence", b =>
                 {
-                    b.Navigation("ResidenceDues");
+                    b.Navigation("ResidenceDuesses");
 
                     b.Navigation("ResidenceInvoices");
                 });

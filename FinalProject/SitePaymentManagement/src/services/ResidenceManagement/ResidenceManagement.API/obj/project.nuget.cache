@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "U2BxWISfCFsq9nACB5Z5V0tDIwn1Q1NuJf4xuSlps9fSznqPtxwDNeQdiD+yF7HJYHEQuxpvVihj0qEPgYLhmw==",
+  "dgSpecHash": "ykPotS1mvXIR9e7RpoVfB/YtcmOqKUIV346rYE9t0V1h32jt9orDbEZbfl5/RTrgW5QYe8/sX8BK7mOR67mAYA==",
   "success": true,
   "projectFilePath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.API\\ResidenceManagement.API.csproj",
   "expectedPackageFiles": [
@@ -78,6 +78,7 @@
     "C:\\Users\\riza_\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\newtonsoft.json\\12.0.2\\newtonsoft.json.12.0.2.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\newtonsoft.json.bson\\1.0.2\\newtonsoft.json.bson.1.0.2.nupkg.sha512",
+    "C:\\Users\\riza_\\.nuget\\packages\\rabbitmq.client\\5.1.2\\rabbitmq.client.5.1.2.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\runtime.native.system\\4.3.0\\runtime.native.system.4.3.0.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\sqlitepclraw.bundle_e_sqlite3\\2.0.4\\sqlitepclraw.bundle_e_sqlite3.2.0.4.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\sqlitepclraw.core\\2.0.4\\sqlitepclraw.core.2.0.4.nupkg.sha512",

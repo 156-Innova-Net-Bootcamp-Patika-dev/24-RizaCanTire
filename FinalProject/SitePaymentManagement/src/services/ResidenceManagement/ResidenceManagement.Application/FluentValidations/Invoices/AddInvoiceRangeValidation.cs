@@ -12,7 +12,6 @@ namespace ResidenceManagement.Application.FluentValidations.Invoices
     {
         public AddInvoiceRangeValidation()
         {
-
             RuleFor(r => r.Fee).GreaterThan(10);
             RuleFor(r => r.Year).GreaterThan(1900);
         }

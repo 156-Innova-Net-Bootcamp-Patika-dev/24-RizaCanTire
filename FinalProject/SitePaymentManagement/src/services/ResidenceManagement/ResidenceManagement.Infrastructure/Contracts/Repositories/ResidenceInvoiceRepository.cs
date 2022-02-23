@@ -15,5 +15,13 @@ namespace ResidenceManagement.Infrastructure.Contracts.Repositories
         public ResidenceInvoiceRepository(SiteContext dbContext) : base(dbContext)
         {
         }
+
+        public async Task<IReadOnlyList<ResidenceInvoice>> GetAllDetails()
+        {
+
+            string[] includes = { "UserResidence" };
+               var list = await base.GetAllAsync(includeStrings:includes);
+            return list;
+        }
     }
 }

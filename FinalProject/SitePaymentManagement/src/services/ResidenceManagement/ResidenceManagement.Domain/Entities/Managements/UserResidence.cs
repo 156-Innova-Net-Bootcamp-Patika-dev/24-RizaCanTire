@@ -13,7 +13,7 @@ namespace ResidenceManagement.Domain.Entities.Managements
         public int ResidentTypeId { get; set; }
         public ResidentType ResidentType { get; set; }
         public IEnumerable<ResidenceInvoice> ResidenceInvoices { get; set; }
-        public IEnumerable<ResidenceDues> ResidenceDues { get; set; }
+        public IEnumerable<ResidenceDues> ResidenceDuesses { get; set; }
 
 
     }

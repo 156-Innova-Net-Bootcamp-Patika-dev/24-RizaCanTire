@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ResidenceManagement.Infrastructure.Contracts.Repositories.Commons
 {
-    public class RepositoryBase<T> :IRepositoryBase<T> where T : EntityBase
+    public class RepositoryBase<T> : IRepositoryBase<T> where T : EntityBase
     {
         private readonly SiteContext _dbContext;
 
@@ -55,7 +55,21 @@ namespace ResidenceManagement.Infrastructure.Contracts.Repositories.Commons
             return list;
 
         }
+        public async Task<T> GetAsync(Expression<Func<T, bool>> predicate, params string[] includeStrings)
+        {
+            IQueryable<T> query = _dbContext.Set<T>().Where(predicate);
 
+            if (includeStrings.Length > 0)
+            {
+                foreach (var include in includeStrings)
+                {
+                    query = query.Include(include);
+                }
+            }
+
+
+            return await query.FirstOrDefaultAsync();
+        }
         public async Task<T> GetAsync(Expression<Func<T, bool>> predicate = null, string includeString = null, params string[] includeStrings)
         {
             IQueryable<T> query = _dbContext.Set<T>();
@@ -72,7 +86,7 @@ namespace ResidenceManagement.Infrastructure.Contracts.Repositories.Commons
                     query = query.Include(include);
                 }
             }
-            return await _dbContext.Set<T>().Where(predicate).FirstOrDefaultAsync();
+            return await _dbContext.Set<T>().FirstOrDefaultAsync();
         }
 
 
@@ -82,12 +96,10 @@ namespace ResidenceManagement.Infrastructure.Contracts.Repositories.Commons
         }
 
 
-        public async Task<IReadOnlyList<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, List<Expression<Func<T, object>>> includes = null, bool disableTracking = true, string includeString = null, params string[] includeStrings)
+        public async Task<IReadOnlyList<T>> GetAllAsync(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, bool disableTracking = true, string includeString = null, params string[] includeStrings)
         {
             IQueryable<T> query = _dbContext.Set<T>();
             if (disableTracking) query = query.AsNoTracking();
-
-            if (includes != null) query = includes.Aggregate(query, (current, include) => current.Include(include));
 
             if (predicate != null) query = query.Where(predicate);
 
@@ -128,6 +140,6 @@ namespace ResidenceManagement.Infrastructure.Contracts.Repositories.Commons
             await _dbContext.SaveChangesAsync();
         }
 
-        
+
     }
 }

@@ -24,6 +24,7 @@ using ResidenceManagement.Application.Features.Queries.Messages.GetMessages;
 using ResidenceManagement.Application.Features.Queries.UserResidences.GetUserResidenceByResident;
 using ResidenceManagement.Application.Models.Messages;
 using ResidenceManagement.Application.Models.PaymentControl;
+using ResidenceManagement.Application.Models.ResidenceDuesControl;
 using ResidenceManagement.Application.Models.ResidenceInvoices;
 using ResidenceManagement.Application.Models.Residences;
 using ResidenceManagement.Application.Models.UserResidences;
@@ -107,7 +108,10 @@ namespace ResidenceManagement.Application.Mappings
             #region Residence Dues
             CreateMap<ResidenceDues, AddResidenceDuesCommand>().ReverseMap();
             CreateMap<ResidenceDues, AddRangeResidenceDuesCommand>().ReverseMap();
-            CreateMap<ResidenceDues, UpdateResidenceDuesCommand>().ReverseMap();
+            CreateMap<ResidenceDues, UpdateResidenceDuesCommand>().ReverseMap(); 
+            CreateMap<ResidenceDues, ResidenceDuesDto>().ReverseMap();
+
+
             #endregion
 
             #region Messages

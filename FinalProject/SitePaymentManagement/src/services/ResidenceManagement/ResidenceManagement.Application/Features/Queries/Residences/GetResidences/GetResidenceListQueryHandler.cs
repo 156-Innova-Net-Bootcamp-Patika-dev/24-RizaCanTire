@@ -25,7 +25,8 @@ namespace ResidenceManagement.Application.Features.Queries.Residences.GetResiden
 
         public async Task<IReadOnlyList<ResidenceDto>> Handle(GetResidenceListQuery request, CancellationToken cancellationToken)
         {
-            var result = await  _residenceRepository.GetAllAsync(includeString:"ResidenceType");
+            var result = await  _residenceRepository.GetAllAsync(includeString: "ResidenceType");
+            
             return _mapper.Map<IReadOnlyList<ResidenceDto>>(result);
         }
     }

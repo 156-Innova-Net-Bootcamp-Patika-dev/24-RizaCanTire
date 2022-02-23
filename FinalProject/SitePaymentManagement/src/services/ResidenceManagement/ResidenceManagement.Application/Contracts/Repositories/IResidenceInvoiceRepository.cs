@@ -10,5 +10,6 @@ namespace ResidenceManagement.Application.Contracts.Repositories
 {
     public interface IResidenceInvoiceRepository : IRepositoryBase<ResidenceInvoice>
     {
+        Task<IReadOnlyList<ResidenceInvoice>> GetAllDetails();
     }
 }

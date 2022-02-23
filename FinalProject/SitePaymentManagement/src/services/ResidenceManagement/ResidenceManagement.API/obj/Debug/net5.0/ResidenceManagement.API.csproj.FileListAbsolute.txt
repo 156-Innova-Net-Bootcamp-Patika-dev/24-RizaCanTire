@@ -105,3 +105,4 @@ C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement
 C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
 C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\obj\Debug\net5.0\ResidenceManagement.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\riza_\Desktop\innova-dotnet-bootcamp\FinalProject\SitePaymentManagement\src\services\ResidenceManagement\ResidenceManagement.API\bin\Debug\net5.0\RabbitMQ.Client.dll

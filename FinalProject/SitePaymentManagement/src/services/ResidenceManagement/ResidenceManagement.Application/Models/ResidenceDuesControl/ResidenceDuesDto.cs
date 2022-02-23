@@ -8,11 +8,9 @@ namespace ResidenceManagement.Application.Models.ResidenceDuesControl
 {
     public class ResidenceDuesDto
     {
-        public int InvoiceId { get; set; }
+        public int Id { get; set; }
+        public int DuesId { get; set; }
         public int UserResidenceId { get; set; }
-
         public bool IsPaid { get; set; }
-
-        public string ResidentType { get; set; }
     }
 }
