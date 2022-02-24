@@ -35,10 +35,15 @@ namespace ResidenceManagement.API
             services.AddApiService(Configuration);
 
             services.AddControllers();
-        //    services.AddSwaggerGen(c =>
-        //    {
-        //        c.SwaggerDoc("v1", new OpenApiInfo { Title = "ResidenceManagement.API", Version = "v1" });
-        //    });
+        
+            services.AddCors(options =>
+                 options.AddDefaultPolicy(builder =>
+                 builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
+
+                        //    services.AddSwaggerGen(c =>
+            //    {
+            //        c.SwaggerDoc("v1", new OpenApiInfo { Title = "ResidenceManagement.API", Version = "v1" });
+            //    });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +58,7 @@ namespace ResidenceManagement.API
             //app.ConfigureCustomExceptionMiddleware();
             app.UseMiddleware(typeof(ExceptionHandlingMiddleware));
 
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyHeader());
 
 
             app.UseHttpsRedirection();

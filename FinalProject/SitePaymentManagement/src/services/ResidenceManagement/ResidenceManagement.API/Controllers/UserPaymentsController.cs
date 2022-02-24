@@ -116,7 +116,7 @@ namespace ResidenceManagement.API.Controllers
             using (IModel channel = connection.CreateModel())
             {
                 EventingBasicConsumer consumer = new EventingBasicConsumer(channel);
-                channel.BasicConsume("customer1", false, consumer);
+                channel.BasicConsume("customer", false, consumer);
                 consumer.Received += (sender, e) =>
                 {
 
@@ -138,7 +138,9 @@ namespace ResidenceManagement.API.Controllers
         public IActionResult GetPayy()
         {
             var message = GetPayMessage.GetMessage();
-            return Ok(message);
+            if(message != null)
+                return Ok(message);
+            return Ok("boş");
         }
 
         //[HttpPost]

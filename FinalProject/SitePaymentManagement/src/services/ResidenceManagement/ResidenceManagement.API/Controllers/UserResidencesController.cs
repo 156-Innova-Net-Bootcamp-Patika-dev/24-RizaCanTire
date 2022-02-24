@@ -13,7 +13,7 @@ namespace ResidenceManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class UserResidencesController : ControllerBase
     {
         private IMediator _mediator;

@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using ResidenceManagement.Application.Features.Commands.Residences.AddResidence;
 using ResidenceManagement.Application.Features.Commands.Residences.AddResidenceRange;
@@ -13,6 +14,7 @@ namespace ResidenceManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[EnableCors]
     //[Authorize(Roles = "Admin")]
 
     public class ResidencesController : ControllerBase

@@ -15,7 +15,7 @@ namespace ResidenceManagement.API.Consumer
             using (IModel channel = connection.CreateModel())
             {
                 EventingBasicConsumer consumer = new EventingBasicConsumer(channel);
-                channel.BasicConsume("customer", false, consumer);
+                channel.BasicConsume("payment", false, consumer);
                 consumer.Received += (sender, e) =>
                 {
 

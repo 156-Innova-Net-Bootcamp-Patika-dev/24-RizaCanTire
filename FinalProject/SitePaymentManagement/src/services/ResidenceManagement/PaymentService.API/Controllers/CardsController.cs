@@ -105,36 +105,32 @@ namespace PaymentService.API.Controllers
         [Route("addRabbit")]
         public IActionResult AddRabbit([FromQuery] PaymentModel paymentModel)
         {
-            var customer = new
-            {
-                Id = 1,
-                Name = "customer",
-                Email = "customer@customer.com"
-            };
+            var payment = paymentModel;
+            
 
             using (var channel = this.connection.CreateModel())
             {
                 channel.QueueDeclare(
-                    queue: "customer1",
+                    queue: "payment",
                     durable: false,
                     exclusive: false,
                     autoDelete: false,
                     arguments: null
                 );
 
-                var customerPayload = System.Text.Json.JsonSerializer.Serialize(customer);
+                var customerPayload = System.Text.Json.JsonSerializer.Serialize(payment);
 
                 var body = Encoding.UTF8.GetBytes(customerPayload);
 
                 channel.BasicPublish(
                     exchange: "",
-                    routingKey: "customer1",
+                    routingKey: "payment",
                     basicProperties: null,
                     body: body
                 );
             }
 
-            return Ok(customer);
+            return Ok(payment);
         }
 
     }
