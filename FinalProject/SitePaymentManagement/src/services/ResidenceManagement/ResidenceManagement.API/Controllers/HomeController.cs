@@ -28,7 +28,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPost("postRabbit")]
-        public IActionResult Get([FromQuery] PaymentDto request)
+        public IActionResult Get([FromBody] PaymentDto request)
         {
             var customer = request;
 

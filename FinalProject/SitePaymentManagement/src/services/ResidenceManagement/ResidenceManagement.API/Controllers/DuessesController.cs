@@ -14,7 +14,7 @@ namespace ResidenceManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
 
     public class DuessesController : ControllerBase
     {
@@ -25,7 +25,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromQuery] AddDuesCommand request)
+        public async Task<IActionResult> Add([FromBody] AddDuesCommand request)
         {
             return Ok(await _mediator.Send(request));
         }
@@ -36,20 +36,20 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete([FromQuery] DeleteDuesCommand request)
+        public IActionResult Delete([FromBody] DeleteDuesCommand request)
         {
             return Ok(_mediator.Send(request));
         }
 
         [HttpPut]
-        public IActionResult Update([FromQuery] UpdateDuesCommand request)
+        public IActionResult Update([FromBody] UpdateDuesCommand request)
         {
             return Ok(_mediator.Send(request));
         }
 
         [HttpPost]
         [Route("AddRange")]
-        public IActionResult AddRange([FromQuery] AddDuesRangeCommand request)
+        public IActionResult AddRange([FromBody] AddDuesRangeCommand request)
         {
             return Ok(_mediator.Send(request));
         }

@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ResidenceManagement.Application.Features.Commands.Residences.AddResidenceRange
 {
-    public class AddResidenceRangeCommandHandler : IRequestHandler<AddResidenceRangeCommand,AddResidenceRangeResponse>
+    public class AddResidenceRangeCommandHandler : IRequestHandler<AddResidenceRangeCommand, AddResidenceRangeResponse>
     {
         private readonly IResidenceRepository _residenceRepository;
         private readonly IMapper _mapper;
@@ -29,15 +29,15 @@ namespace ResidenceManagement.Application.Features.Commands.Residences.AddReside
             int maxBlock = request.BlockNumber;
             int maxFloor = request.FloorPerBlock;
 
-            var startedNumber = 1 ;
-            var n =await _residenceRepository.GetAllAsync();
+            var startedNumber = 1;
+            var n = await _residenceRepository.GetAllAsync();
             int currentFoor = 1;
             if (n.Count != 0)
-                startedNumber = n.Select(u => u.Block).Max() + 1 ;
+                startedNumber = n.Select(u => u.Block).Max() + 1;
 
             for (int i = 1; i <= maxBlock; i++)
             {
-                for (int j = 1; j <= maxDoorNumber; )
+                for (int j = 1; j <= maxDoorNumber;)
                 {
                     for (int k = 1; k <= request.HousePerBlock; k++)
                     {
@@ -48,7 +48,7 @@ namespace ResidenceManagement.Application.Features.Commands.Residences.AddReside
                         res.ResidenceTypeId = request.ResidenceTypeId;
                         await _residenceRepository.AddAsync(res);
                         j++;
-                        
+
                     }
                     currentFoor++;
                 }
@@ -57,8 +57,8 @@ namespace ResidenceManagement.Application.Features.Commands.Residences.AddReside
 
             }
             return new AddResidenceRangeResponse(true);
-        } 
-          
-           
+        }
+
+
     }
 }

@@ -35,7 +35,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Add([FromQuery] AddResidenceCommand addResidence)
+        public async Task<IActionResult> Add([FromBody] AddResidenceCommand addResidence)
         {
             var result= await (_mediator.Send(addResidence));
             return Ok(result);
@@ -46,7 +46,7 @@ namespace ResidenceManagement.API.Controllers
         [HttpPost]
         [Route("range")]
 
-        public async Task<IActionResult> AddRange([FromQuery] AddResidenceRangeCommand addResidence)
+        public async Task<IActionResult> AddRange([FromBody] AddResidenceRangeCommand addResidence)
         {
             var result = await (_mediator.Send(addResidence));
             return Ok(result);
@@ -54,7 +54,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpDelete]
-        public async Task<IActionResult> Delete([FromQuery] DeleteResidenceCommand deleteResidence)
+        public async Task<IActionResult> Delete([FromBody] DeleteResidenceCommand deleteResidence)
         {
             var result = await (_mediator.Send(deleteResidence));
             return Ok(result);
@@ -64,7 +64,7 @@ namespace ResidenceManagement.API.Controllers
         [HttpDelete]
         [Route("block")]
 
-        public async Task<IActionResult> DeleteBlock([FromQuery] DeleteResidenceBlockCommand deleteResidence)
+        public async Task<IActionResult> DeleteBlock([FromBody] DeleteResidenceBlockCommand deleteResidence)
         {
             var result = await (_mediator.Send(deleteResidence));
             return Ok(result);
@@ -72,7 +72,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromQuery] UpdateResidenceCommand updateResidence)
+        public async Task<IActionResult> Update([FromBody] UpdateResidenceCommand updateResidence)
         {
             var result = await (_mediator.Send(updateResidence));
             return Ok(result);

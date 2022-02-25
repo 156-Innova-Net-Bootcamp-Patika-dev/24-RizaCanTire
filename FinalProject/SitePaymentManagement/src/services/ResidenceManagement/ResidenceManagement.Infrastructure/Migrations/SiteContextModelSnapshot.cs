@@ -245,13 +245,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2649a520-bbef-4069-8ab4-9e3d81b80d9b",
+                            ConcurrencyStamp = "7a89f963-3848-4198-9f0c-f44ac528f2a6",
                             Email = "admin@admin.com",
                             EmailConfirmed = false,
                             FirstName = "Rıza Can",
                             LastName = "Tire",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEAk5dobtZ6fMroLZyuNPNvj3LGg6PvQG+4oxMdo3R8fd8vHjbrKsQ111LqsNf5gkGA==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGCWqqlPJ/IPrvC+/xHZvHH92abEEMs2ti/ZcnYx0RVJrPg0CbsTgcw1vm/U99AfmA==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         },
@@ -259,13 +259,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0d216dc0-2ea5-4255-bfc6-034b53e3e478",
+                            ConcurrencyStamp = "2738a9a0-1c46-4b81-b6aa-88248568259c",
                             Email = "ahmet@admin.com",
                             EmailConfirmed = false,
                             FirstName = "Ahmet",
                             LastName = "Tire",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAELQHNgKReSn/4oSDPI//ZaeU3SJZdGFYVpzgykOF/x8WkNxNb5HGmdGcYq1GniHlEQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEPuyjqQOIH0myn2aiJAjQEipSbVZD3OEXKCB/aCvBgfoU3bEN9vMsPNZRukc0IAhrg==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         },
@@ -273,13 +273,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "a401f177-7f34-4819-94b1-a2edbc7c7376",
+                            ConcurrencyStamp = "fd7087c6-4814-44ab-b7fa-8cd4d328e052",
                             Email = "d@d.com",
                             EmailConfirmed = false,
                             FirstName = "Demiralp",
                             LastName = "Tire",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEG8ZaeGXbQccIr6RUDKfa8VsT+49bsdFeZ7ub97orDzy9kckf06+GmIPdSQ8e92dLg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEJHRLZz1yCcAgyzWik5w/hKtg1cQY5ifckyyT1X63s2RXHTV4wtKj1LJW90QrERukQ==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         },
@@ -287,13 +287,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         {
                             Id = 4,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "c13289a1-249a-4ca8-9b7d-2e5308c1bdee",
+                            ConcurrencyStamp = "b8bbec89-9cc3-46d2-adfb-4fcef48de312",
                             Email = "y@y.com",
                             EmailConfirmed = false,
                             FirstName = "Yasemin",
                             LastName = "Tire",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEBAB+gkxSfmY+Eveq0g6AOjtSp5kz3WguUb+mMqGVbZCQzA4waC59tREIPjqk4YRAQ==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEP1dHTjsQ6BpiTE64nfgqPHWS0LDogApDqR8h/3CuiklUvZrV+qLIRzsx6draKjOXQ==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         },
@@ -301,13 +301,13 @@ namespace ResidenceManagement.Infrastructure.Migrations
                         {
                             Id = 5,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "ebf000a0-c168-434e-8e91-a887781f9477",
+                            ConcurrencyStamp = "a657bcad-139d-4c74-942f-d77cb1999a25",
                             Email = "h@h.com",
                             EmailConfirmed = false,
                             FirstName = "Hasibe",
                             LastName = "Tire",
                             LockoutEnabled = false,
-                            PasswordHash = "AQAAAAEAACcQAAAAEEN9by1n+ygWG+kQ4jn2SwCpl/CwPE06eFNz+wigl0voC09aO1OR5NiglmV8ETb79Q==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEQIEskFmrKD8qsWovXaBOGfh4sgVlvgrI4vxs2YGgw7RgaTgyS9zM06TjacpFnPQw==",
                             PhoneNumberConfirmed = false,
                             TwoFactorEnabled = false
                         });

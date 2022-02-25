@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ResidenceManagement.Infrastructure.Migrations
 {
-    public partial class INITIALCREATE : Migration
+    public partial class mig1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -367,27 +367,27 @@ namespace ResidenceManagement.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "CarPlate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NationalId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 1, 0, null, "2649a520-bbef-4069-8ab4-9e3d81b80d9b", "admin@admin.com", false, "Rıza Can", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEAk5dobtZ6fMroLZyuNPNvj3LGg6PvQG+4oxMdo3R8fd8vHjbrKsQ111LqsNf5gkGA==", null, false, null, false, null });
+                values: new object[] { 1, 0, null, "7a89f963-3848-4198-9f0c-f44ac528f2a6", "admin@admin.com", false, "Rıza Can", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEGCWqqlPJ/IPrvC+/xHZvHH92abEEMs2ti/ZcnYx0RVJrPg0CbsTgcw1vm/U99AfmA==", null, false, null, false, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "CarPlate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NationalId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 2, 0, null, "0d216dc0-2ea5-4255-bfc6-034b53e3e478", "ahmet@admin.com", false, "Ahmet", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAELQHNgKReSn/4oSDPI//ZaeU3SJZdGFYVpzgykOF/x8WkNxNb5HGmdGcYq1GniHlEQ==", null, false, null, false, null });
+                values: new object[] { 2, 0, null, "2738a9a0-1c46-4b81-b6aa-88248568259c", "ahmet@admin.com", false, "Ahmet", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEPuyjqQOIH0myn2aiJAjQEipSbVZD3OEXKCB/aCvBgfoU3bEN9vMsPNZRukc0IAhrg==", null, false, null, false, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "CarPlate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NationalId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 3, 0, null, "a401f177-7f34-4819-94b1-a2edbc7c7376", "d@d.com", false, "Demiralp", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEG8ZaeGXbQccIr6RUDKfa8VsT+49bsdFeZ7ub97orDzy9kckf06+GmIPdSQ8e92dLg==", null, false, null, false, null });
+                values: new object[] { 3, 0, null, "fd7087c6-4814-44ab-b7fa-8cd4d328e052", "d@d.com", false, "Demiralp", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEJHRLZz1yCcAgyzWik5w/hKtg1cQY5ifckyyT1X63s2RXHTV4wtKj1LJW90QrERukQ==", null, false, null, false, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "CarPlate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NationalId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 4, 0, null, "c13289a1-249a-4ca8-9b7d-2e5308c1bdee", "y@y.com", false, "Yasemin", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEBAB+gkxSfmY+Eveq0g6AOjtSp5kz3WguUb+mMqGVbZCQzA4waC59tREIPjqk4YRAQ==", null, false, null, false, null });
+                values: new object[] { 4, 0, null, "b8bbec89-9cc3-46d2-adfb-4fcef48de312", "y@y.com", false, "Yasemin", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEP1dHTjsQ6BpiTE64nfgqPHWS0LDogApDqR8h/3CuiklUvZrV+qLIRzsx6draKjOXQ==", null, false, null, false, null });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "CarPlate", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NationalId", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { 5, 0, null, "ebf000a0-c168-434e-8e91-a887781f9477", "h@h.com", false, "Hasibe", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEEN9by1n+ygWG+kQ4jn2SwCpl/CwPE06eFNz+wigl0voC09aO1OR5NiglmV8ETb79Q==", null, false, null, false, null });
+                values: new object[] { 5, 0, null, "a657bcad-139d-4c74-942f-d77cb1999a25", "h@h.com", false, "Hasibe", "Tire", false, null, null, null, null, "AQAAAAEAACcQAAAAEEQIEskFmrKD8qsWovXaBOGfh4sgVlvgrI4vxs2YGgw7RgaTgyS9zM06TjacpFnPQw==", null, false, null, false, null });
 
             migrationBuilder.InsertData(
                 table: "ResidenceTypes",

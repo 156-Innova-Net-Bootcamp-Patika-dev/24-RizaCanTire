@@ -1,12 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "YlfRVIyMMyk+E1gZw1urdPafFHW40LilvdpAThkCebU4PUdr6xQmc/HyfFiaADuDBh9V0W5mDvOkF5jhhvV6Kg==",
+  "dgSpecHash": "yRh2n9GRszQiMr9ThdO5UD8WtQirDpKJF2ZZzUI9+RXiuyVmLn0filcKnsq+TGidm2S0x5ptAGS1wloQK7zd4A==",
   "success": true,
   "projectFilePath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\PaymentService.API\\PaymentService.API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\riza_\\.nuget\\packages\\dnsclient\\1.4.0\\dnsclient.1.4.0.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\eventstore.client\\21.2.2\\eventstore.client.21.2.2.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\riza_\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\riza_\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.14\\microsoft.data.sqlite.core.5.0.14.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",

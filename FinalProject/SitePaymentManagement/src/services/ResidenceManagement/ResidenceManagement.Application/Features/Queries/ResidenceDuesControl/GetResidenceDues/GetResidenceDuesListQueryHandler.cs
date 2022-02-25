@@ -25,8 +25,8 @@ namespace ResidenceManagement.Application.Features.Queries.ResidenceDues.GetResi
 
         public async Task<BaseDataResponse<IReadOnlyList<ResidenceDuesDto>>> Handle(GetResidenceDuesListQuery request, CancellationToken cancellationToken)
         {
-            string[] includes = { "UserResidence.ResidentType" };
-            var residenceDuesList = await _residenceDuesRepository.GetAllAsync(includeString: "UserResidence.ResidentType");
+            string[] includes = { "UserResidence", "Dues", "UserResidence.User", "UserResidence.Residence", "UserResidence.ResidentType" };
+            var residenceDuesList = await _residenceDuesRepository.GetAllAsync(includeStrings: includes);
             if (residenceDuesList.Count == 0)
                 throw new NotFoundException(request);
             var returnList = _mapper.Map<IReadOnlyList<ResidenceDuesDto>>(residenceDuesList);

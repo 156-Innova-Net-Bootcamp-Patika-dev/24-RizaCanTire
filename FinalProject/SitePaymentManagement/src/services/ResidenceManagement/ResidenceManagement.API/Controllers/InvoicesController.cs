@@ -12,7 +12,7 @@ namespace ResidenceManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
 
     public class InvoicesController : ControllerBase
     {
@@ -30,19 +30,19 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add([FromQuery] AddInvoiceCommand request)
+        public IActionResult Add([FromBody] AddInvoiceCommand request)
         {
             return Ok(_mediator.Send(request));
         }
 
         [HttpDelete]
-        public IActionResult Add([FromQuery] DeleteInvoiceCommand request)
+        public IActionResult Add([FromBody] DeleteInvoiceCommand request)
         {
             return Ok(_mediator.Send(request));
         }
 
         [HttpPut]
-        public IActionResult Update([FromQuery] UpdateInvoiceCommand request)
+        public IActionResult Update([FromBody] UpdateInvoiceCommand request)
         {
 
             return Ok(_mediator.Send(request));
@@ -50,7 +50,7 @@ namespace ResidenceManagement.API.Controllers
 
         [HttpPost]
         [Route("AddRange")]
-        public IActionResult AddRange([FromQuery] AddInvoiceRangeCommand request)
+        public IActionResult AddRange([FromBody] AddInvoiceRangeCommand request)
         {
             return Ok(_mediator.Send(request));
         }

@@ -14,7 +14,7 @@ namespace ResidenceManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class ResidenceInvoicesController : ControllerBase
     {
         private IMediator _mediator;
@@ -42,7 +42,7 @@ namespace ResidenceManagement.API.Controllers
        [HttpGet]
         [Route("GetByUser")]
 
-        public IActionResult GetByUser([FromQuery] GetResidenceInvoiceByUserQuery request)
+        public IActionResult GetByUser([FromBody] GetResidenceInvoiceByUserQuery request)
         {
             var currentUser = User.GetUserId();
             request.UserId = int.Parse(currentUser);
@@ -50,25 +50,25 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+       //[Authorize(Roles = "Admin")]
 
-        public IActionResult Add([FromQuery] AddResidenceInvoiceCommand request)
+        public IActionResult Add([FromBody] AddResidenceInvoiceCommand request)
         {
             return Ok(_mediator.Send(request));
         }
 
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
 
-        public IActionResult Delete([FromQuery] DeleteResidenceInvoiceCommand request)
+        public IActionResult Delete([FromBody] DeleteResidenceInvoiceCommand request)
         {
             return Ok(_mediator.Send(request));
         }
 
         [HttpPut]
-        [Authorize(Roles = "Admin")]
+       //[Authorize(Roles = "Admin")]
 
-        public IActionResult Update([FromQuery] UpdateResidenceInvoiceCommand request)
+        public IActionResult Update([FromBody] UpdateResidenceInvoiceCommand request)
         {
 
             return Ok(_mediator.Send(request));
@@ -76,9 +76,9 @@ namespace ResidenceManagement.API.Controllers
 
         [HttpPost]
         [Route("AddRange")]
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
 
-        public IActionResult AddRange([FromQuery] AddRangeResidenceInvoiceCommand request)
+        public IActionResult AddRange([FromBody] AddRangeResidenceInvoiceCommand request)
         {
             return Ok(_mediator.Send(request));
         }

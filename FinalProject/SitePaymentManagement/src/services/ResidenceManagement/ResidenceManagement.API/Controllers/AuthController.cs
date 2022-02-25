@@ -51,7 +51,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPost("SignIn")]
-        public async Task<IActionResult> SignIn([FromQuery] SignInUserQuery signInUserCommandQuery)
+        public async Task<IActionResult> SignIn([FromBody] SignInUserQuery signInUserCommandQuery)
         {
             var query = signInUserCommandQuery;
             var userModel = await _mediator.Send(query);
@@ -85,7 +85,7 @@ namespace ResidenceManagement.API.Controllers
         [HttpPut]
         [Authorize(Roles = "Admin")]
 
-        public async Task<IdentityResult> Update([FromQuery] UpdateUserCommand userCommand)
+        public async Task<IdentityResult> Update([FromBody] UpdateUserCommand userCommand)
         {
             
             return await _mediator.Send(userCommand);

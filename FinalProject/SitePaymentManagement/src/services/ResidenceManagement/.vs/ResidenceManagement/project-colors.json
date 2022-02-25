@@ -65,7 +65,12 @@
       "ProjectGuid": "befd4187-4b56-4bb9-8154-08024b0f5a9f",
       "DisplayName": "ResidenceManagement.WEBAPI",
       "ColorIndex": 11
+    },
+    "f6f2e40c-34f5-4c7c-ab7a-952b1ce02316": {
+      "ProjectGuid": "f6f2e40c-34f5-4c7c-ab7a-952b1ce02316",
+      "DisplayName": "Program",
+      "ColorIndex": 12
     }
   },
-  "NextColorIndex": 12
+  "NextColorIndex": 13
 }

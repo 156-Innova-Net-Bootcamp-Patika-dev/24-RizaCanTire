@@ -137,10 +137,36 @@ namespace ResidenceManagement.API.Controllers
         [Route("getPAyyy")]
         public IActionResult GetPayy()
         {
-            var message = GetPayMessage.GetMessage();
+            var message = GetPayMessage.GetMessage().ToString();
             if(message != null)
                 return Ok(message);
             return Ok("boş");
+        }
+
+        [HttpGet]
+        [Route("getConsole")]
+        public IActionResult GetConsole()
+        {
+            var result = "0";
+                var factory = new ConnectionFactory() { HostName = "localhost", UserName = "admin", Password = "123456" };
+            
+            using (IConnection connection = factory.CreateConnection())
+            using (IModel channel = connection.CreateModel())
+            {
+                EventingBasicConsumer consumer = new EventingBasicConsumer(channel);
+                channel.BasicConsume("payment", false, consumer);
+                //result = consumer.ToString();
+                consumer.Received += (sender, e) =>
+                {
+
+                    var body = e.Body.ToArray();
+                    var jsonString = Encoding.UTF8.GetString(body);
+
+                     result = body.ToString();
+
+                    channel.BasicAck(e.DeliveryTag, false);
+                };
+            }return Ok(result);
         }
 
         //[HttpPost]

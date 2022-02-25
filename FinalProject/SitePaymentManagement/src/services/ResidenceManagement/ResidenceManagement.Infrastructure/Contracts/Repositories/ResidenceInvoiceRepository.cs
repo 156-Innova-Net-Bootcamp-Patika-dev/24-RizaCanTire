@@ -20,7 +20,7 @@ namespace ResidenceManagement.Infrastructure.Contracts.Repositories
         {
 
             string[] includes = { "UserResidence" };
-               var list = await base.GetAllAsync(includeStrings:includes);
+            var list = await base.GetAllAsync(includeStrings: includes);
             return list;
         }
     }

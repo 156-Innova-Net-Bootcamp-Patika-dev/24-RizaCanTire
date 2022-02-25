@@ -25,7 +25,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult SendMessage([FromQuery] SendMessageCommand request)
+        public IActionResult SendMessage([FromBody] SendMessageCommand request)
         {
             int currentUserId = int.Parse(User.GetUserId());
             if (currentUserId != 1)
@@ -37,7 +37,7 @@ namespace ResidenceManagement.API.Controllers
 
         [HttpGet]
         [Route("GetByUser")]
-        public IActionResult GetByUser([FromQuery] GetMessageQuery request)
+        public IActionResult GetByUser([FromBody] GetMessageQuery request)
         {
             int currentUserId = int.Parse(User.GetUserId());
             request.UserId = currentUserId;
@@ -45,7 +45,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPut]
-        public IActionResult CheckRead([FromQuery] CheckReadMessageCommand request)
+        public IActionResult CheckRead([FromBody] CheckReadMessageCommand request)
         {
             int currentUserId = int.Parse(User.GetUserId());
             request.UserId = currentUserId;
@@ -53,7 +53,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Delete([FromQuery] DeleteMessageCommand request)
+        public IActionResult Delete([FromBody] DeleteMessageCommand request)
         {
             int currentUserId = int.Parse(User.GetUserId());
             request.UserId = currentUserId;

@@ -11,7 +11,7 @@ namespace ResidenceManagement.API.Consumer
         public static string GetMessage()
         {
             var factory = new ConnectionFactory() { HostName = "localhost", UserName = "admin", Password = "123456" };
-            var getingPayment = "1";
+            string getingPayment = "1";
 
             using (IConnection connection = factory.CreateConnection())
             using (IModel channel = connection.CreateModel())
@@ -21,14 +21,16 @@ namespace ResidenceManagement.API.Consumer
                 {
                     var body = ea.Body;
                     var message = Encoding.UTF8.GetString(body);
-                    getingPayment = (string)JsonConvert.DeserializeObject(message); 
+                    getingPayment = JsonConvert.DeserializeObject(message).ToString();
+                    
                 };
                 channel.BasicConsume(queue: "payment", 
                     autoAck: true, 
-                    consumer: consumer); 
+                    consumer: consumer);
+                return getingPayment;
 
             }
-            return getingPayment;
+           
         }
     }
 }

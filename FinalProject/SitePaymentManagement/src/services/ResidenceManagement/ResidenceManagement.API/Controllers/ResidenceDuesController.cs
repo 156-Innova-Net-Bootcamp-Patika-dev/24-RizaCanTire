@@ -12,7 +12,7 @@ namespace ResidenceManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
 
     public class ResidenceDuesController : ControllerBase
     {
@@ -33,10 +33,10 @@ namespace ResidenceManagement.API.Controllers
         }
         [HttpGet]
         [Route("GetByUser")]
-        [Authorize]
+        //[Authorize]
 
 
-        public IActionResult GetByUser([FromQuery] GetResidenceDuesByUserQuery request)
+        public IActionResult GetByUser([FromBody] GetResidenceDuesByUserQuery request)
         {
             
 
@@ -44,25 +44,25 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
 
-        public IActionResult Add([FromQuery] AddResidenceDuesCommand request)
+        public IActionResult Add([FromBody] AddResidenceDuesCommand request)
         {
             return Ok(_mediator.Send(request));
         }
 
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
 
-        public IActionResult Delete([FromQuery] DeleteResidenceDuesCommand request)
+        public IActionResult Delete([FromBody] DeleteResidenceDuesCommand request)
         {
             return Ok(_mediator.Send(request));
         }
 
         [HttpPut]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
 
-        public IActionResult Update([FromQuery] UpdateResidenceDuesCommand request)
+        public IActionResult Update([FromBody] UpdateResidenceDuesCommand request)
         {
 
             return Ok(_mediator.Send(request));
@@ -70,9 +70,9 @@ namespace ResidenceManagement.API.Controllers
 
         [HttpPost]
         [Route("AddRange")]
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
 
-        public IActionResult AddRand([FromQuery] AddRangeResidenceDuesCommand request)
+        public IActionResult AddRand([FromBody] AddRangeResidenceDuesCommand request)
         {
             return Ok(_mediator.Send(request));
         }
