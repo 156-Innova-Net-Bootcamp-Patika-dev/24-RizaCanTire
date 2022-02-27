@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "zak0Fz/JjYH1o0j0hd03h4qhe8Fa1BbgjjM6k7t8nXMzzm1VdYcD5wYqW4D9X44Hk+842a1yW9bhDp5O/2ngYg==",
+  "dgSpecHash": "GM49bp/zpjt7ccNSoIfrON9NRG4w+9oovBXajSCB1SfXWz7BL+AhSnPE1wuC4c1ZEwftBzsMnJmd5JgQGO17fQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Infrastructure\\ResidenceManagement.Infrastructure.csproj",
+  "projectFilePath": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\ResidenceManagement.Infrastructure\\ResidenceManagement.Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\riza_\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\riza_\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

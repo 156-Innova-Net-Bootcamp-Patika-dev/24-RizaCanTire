@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\PaymentService.API\\PaymentService.API.csproj": {}
+    "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\PaymentService.API\\PaymentService.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\PaymentService.API\\PaymentService.API.csproj": {
+    "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\PaymentService.API\\PaymentService.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\PaymentService.API\\PaymentService.API.csproj",
+        "projectUniqueName": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\PaymentService.API\\PaymentService.API.csproj",
         "projectName": "PaymentService.API",
-        "projectPath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\PaymentService.API\\PaymentService.API.csproj",
+        "projectPath": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\PaymentService.API\\PaymentService.API.csproj",
         "packagesPath": "C:\\Users\\riza_\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\PaymentService.API\\obj\\",
+        "outputPath": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\PaymentService.API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\riza_\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -27,7 +27,11 @@
         "frameworks": {
           "net5.0": {
             "targetAlias": "net5.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\Shared.Models\\Shared.Models.csproj": {
+                "projectPath": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\Shared.Models\\Shared.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -40,6 +44,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            },
             "EventStore.Client": {
               "target": "Package",
               "version": "[21.2.2, )"
@@ -48,11 +56,23 @@
               "target": "Package",
               "version": "[7.3.1, )"
             },
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.3.1, )"
+            },
             "MassTransit.RabbitMQ": {
               "target": "Package",
               "version": "[7.3.1, )"
             },
             "MediatR": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "MediatR.Extensions": {
+              "target": "Package",
+              "version": "[0.6.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[10.0.1, )"
             },
@@ -99,6 +119,60 @@
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
             },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\Shared.Models\\Shared.Models.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\Shared.Models\\Shared.Models.csproj",
+        "projectName": "Shared.Models",
+        "projectPath": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\Shared.Models\\Shared.Models.csproj",
+        "packagesPath": "C:\\Users\\riza_\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\Shared.Models\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\riza_\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }

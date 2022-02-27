@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using PaymentService.API.Entities;
-using PaymentService.API.MessageBroker;
 using PaymentService.API.Models;
 using PaymentService.API.Repositories;
 using RabbitMQ.Client;
@@ -13,7 +12,6 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
-using PaymentService.API.MassBroker;
 
 namespace PaymentService.API.Controllers
 {
@@ -22,21 +20,11 @@ namespace PaymentService.API.Controllers
     public class CardsController : ControllerBase
     {
         private readonly ICardRepository _cardRepository;
-        private readonly ConnectionFactory factory;
-        private readonly IConnection connection;
 
         public CardsController(ICardRepository cardRepository)
         {
             _cardRepository = cardRepository;
 
-            factory = new ConnectionFactory()
-            {
-                HostName = "localhost",
-                UserName = "admin",
-                Password = "123456"
-            };
-
-            connection = factory.CreateConnection();
         }
 
         [HttpGet]
@@ -92,18 +80,5 @@ namespace PaymentService.API.Controllers
         {
             return Ok(await _cardRepository.DeleteCard(id));
         }
-
-
-        [HttpPost]
-        [Route("PaymentControl")]
-        public IActionResult PaymentControl([FromQuery] PaymentModel paymentModel)
-        {
-            Message.SendMesage(paymentModel);
-            return Ok();
-        }
-
-    
-        
-
     }
 }

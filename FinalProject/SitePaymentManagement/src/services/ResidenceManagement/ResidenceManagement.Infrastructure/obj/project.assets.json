@@ -7066,11 +7066,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Infrastructure\\ResidenceManagement.Infrastructure.csproj",
+      "projectUniqueName": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\ResidenceManagement.Infrastructure\\ResidenceManagement.Infrastructure.csproj",
       "projectName": "ResidenceManagement.Infrastructure",
-      "projectPath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Infrastructure\\ResidenceManagement.Infrastructure.csproj",
+      "projectPath": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\ResidenceManagement.Infrastructure\\ResidenceManagement.Infrastructure.csproj",
       "packagesPath": "C:\\Users\\riza_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Infrastructure\\obj\\",
+      "outputPath": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\ResidenceManagement.Infrastructure\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\riza_\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -7087,11 +7087,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Application\\ResidenceManagement.Application.csproj": {
-              "projectPath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Application\\ResidenceManagement.Application.csproj"
+            "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\ResidenceManagement.Application\\ResidenceManagement.Application.csproj": {
+              "projectPath": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\ResidenceManagement.Application\\ResidenceManagement.Application.csproj"
             },
-            "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Domain\\ResidenceManagement.Domain.csproj": {
-              "projectPath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Domain\\ResidenceManagement.Domain.csproj"
+            "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\ResidenceManagement.Domain\\ResidenceManagement.Domain.csproj": {
+              "projectPath": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\ResidenceManagement.Domain\\ResidenceManagement.Domain.csproj"
             }
           }
         }

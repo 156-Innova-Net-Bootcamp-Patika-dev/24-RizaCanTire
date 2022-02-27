@@ -747,11 +747,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Domain\\ResidenceManagement.Domain.csproj",
+      "projectUniqueName": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\ResidenceManagement.Domain\\ResidenceManagement.Domain.csproj",
       "projectName": "ResidenceManagement.Domain",
-      "projectPath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Domain\\ResidenceManagement.Domain.csproj",
+      "projectPath": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\ResidenceManagement.Domain\\ResidenceManagement.Domain.csproj",
       "packagesPath": "C:\\Users\\riza_\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\riza_\\Desktop\\innova-dotnet-bootcamp\\FinalProject\\SitePaymentManagement\\src\\services\\ResidenceManagement\\ResidenceManagement.Domain\\obj\\",
+      "outputPath": "C:\\Users\\riza_\\Desktop\\mass\\ResidenceManagement-Mass\\ResidenceManagement.Domain\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\riza_\\AppData\\Roaming\\NuGet\\NuGet.Config",

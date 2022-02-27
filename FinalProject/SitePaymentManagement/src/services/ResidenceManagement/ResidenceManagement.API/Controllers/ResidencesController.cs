@@ -14,7 +14,6 @@ namespace ResidenceManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[EnableCors]
     [Authorize(Roles = "Admin")]
 
     public class ResidencesController : ControllerBase

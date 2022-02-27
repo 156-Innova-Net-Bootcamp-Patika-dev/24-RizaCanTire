@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
-using ResidenceManagement.API.Consumer;
 using ResidenceManagement.Application.Features.Commands.Payments.DuesPayments.PayDues;
 using ResidenceManagement.Application.Features.Commands.Payments.InvoicePayments.PayInvoices;
 using ResidenceManagement.Application.Features.Queries.ResidenceDues.GetResidenceDuessByUser;
@@ -97,90 +96,6 @@ namespace ResidenceManagement.API.Controllers
             return Ok(_mediator.Send(request));
         }
 
-        [HttpGet]
-        [Route("checkPayment")]
-        public IActionResult CheckPayment()
-        {
-            var checkItem = GetMessage.CheckPayment();
-            return Ok(checkItem);
-        }
-
-        [HttpGet]
-        [Route("getPayRabbit")]
-        public IActionResult GetRabbit()
-        {
-            ConnectionFactory factory = new ConnectionFactory() { HostName = "localhost", UserName = "admin", Password = "123456" };
-            factory.HostName = "localhost";
-            var returnItem = "";
-            using (IConnection connection = factory.CreateConnection())
-            using (IModel channel = connection.CreateModel())
-            {
-                EventingBasicConsumer consumer = new EventingBasicConsumer(channel);
-                channel.BasicConsume("customer", false, consumer);
-                consumer.Received += (sender, e) =>
-                {
-
-                    var body = e.Body.ToArray();
-                    var jsonString = Encoding.UTF8.GetString(body);
-
-                    Console.WriteLine($"Json receievd as {jsonString}");
-
-                    channel.BasicAck(e.DeliveryTag, false);
-                    returnItem = jsonString;
-                };
-                Console.Read();
-            }
-            return Ok(returnItem);
-        }
-
-        [HttpGet]
-        [Route("getPAyyy")]
-        public IActionResult GetPayy()
-        {
-            var message = GetPayMessage.GetMessage().ToString();
-            if(message != null)
-                return Ok(message);
-            return Ok("boş");
-        }
-
-        [HttpGet]
-        [Route("getConsole")]
-        public IActionResult GetConsole()
-        {
-            var result = "0";
-                var factory = new ConnectionFactory() { HostName = "localhost", UserName = "admin", Password = "123456" };
-            
-            using (IConnection connection = factory.CreateConnection())
-            using (IModel channel = connection.CreateModel())
-            {
-                EventingBasicConsumer consumer = new EventingBasicConsumer(channel);
-                channel.BasicConsume("payment", false, consumer);
-                //result = consumer.ToString();
-                consumer.Received += (sender, e) =>
-                {
-
-                    var body = e.Body.ToArray();
-                    var jsonString = Encoding.UTF8.GetString(body);
-
-                     result = body.ToString();
-
-                    channel.BasicAck(e.DeliveryTag, false);
-                };
-            }return Ok(result);
-        }
-
-        //[HttpPost]
-        //[Route("payInvoiceRabbit")]
-        //public async Task<IActionResult> Post(PayResidenceInvoice payResidenceInvoice)
-        //{
-        //    //Ürün karşılanır.
-        //    //Gerekli ön çalışmalar yapılır.
-
-        //    var bus = BusConfigurator.ConfigureBus();
-        //    var sendToUri = new Uri($"{RabbitMqConstants.RabbitMqUri}/{RabbitMqConstants.PaymentServiceQueue}");
-        //    var endPoint = await bus.GetSendEndpoint(sendToUri);
-        //    await endPoint.Send<IPaymentInvoiceCommand>(payResidenceInvoice);
-        //    return Ok("Ödeme işlemler gerçekleştirilmiştir. Teşekkür ederiz.");
-        //}
+      
     }
 }
