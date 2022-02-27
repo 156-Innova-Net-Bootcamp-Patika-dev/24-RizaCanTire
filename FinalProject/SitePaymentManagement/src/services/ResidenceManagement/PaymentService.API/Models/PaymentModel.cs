@@ -6,5 +6,6 @@
         public string LastName { get; set; }
         public int CardNumber { get; set; }
         public double Fee { get; set; }
+        public int PaymentObjectId { get; set; }
     }
 }

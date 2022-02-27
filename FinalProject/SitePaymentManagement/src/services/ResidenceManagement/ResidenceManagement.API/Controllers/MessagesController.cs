@@ -37,8 +37,9 @@ namespace ResidenceManagement.API.Controllers
 
         [HttpGet]
         [Route("GetByUser")]
-        public IActionResult GetByUser([FromBody] GetMessageQuery request)
+        public IActionResult GetByUser()
         {
+            var request = new GetMessageQuery();
             int currentUserId = int.Parse(User.GetUserId());
             request.UserId = currentUserId;
             return Ok(_mediator.Send(request));

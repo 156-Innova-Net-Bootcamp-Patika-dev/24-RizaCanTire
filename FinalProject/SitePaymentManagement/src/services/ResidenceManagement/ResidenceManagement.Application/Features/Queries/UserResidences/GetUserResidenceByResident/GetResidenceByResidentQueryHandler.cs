@@ -26,8 +26,9 @@ namespace ResidenceManagement.Application.Features.Queries.UserResidences.GetUse
 
         public async Task<List<UserResidenceDto>> Handle(GetResidenceByResidentQuery request, CancellationToken cancellationToken)
         {
+            string[] includes = { "Residence", "ResidentType", "User", "Residence.ResidenceType" };
             var id = request.UserId;
-            var residenceDetail = await _userResidenceRepository.GetAllAsync(u => u.UserId == id);
+            var residenceDetail = await _userResidenceRepository.GetAllAsync(u => u.UserId == id,includeStrings:includes);
             if (residenceDetail == null || residenceDetail.Count == 0)
                 throw new NotFoundException("Dairesi yok",id);
            

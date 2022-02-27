@@ -8,6 +8,9 @@
 
 	  <PackageReference Include="EventStore.Client" Version="21.2.2" />
 
+	  <PackageReference Include="MassTransit" Version="7.3.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="7.3.1" />
+
 	  <PackageReference Include="MediatR" Version="10.0.1" />
 
 	  <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.14" />
@@ -21,7 +24,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MongoDB.Driver" Version="2.14.1" />
-    <PackageReference Include="RabbitMQ.Client" Version="5.1.2" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
   </ItemGroup>
 

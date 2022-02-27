@@ -13,6 +13,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
+using PaymentService.API.MassBroker;
 
 namespace PaymentService.API.Controllers
 {
@@ -101,37 +102,8 @@ namespace PaymentService.API.Controllers
             return Ok();
         }
 
-        [HttpPost]
-        [Route("addRabbit")]
-        public IActionResult AddRabbit([FromQuery] PaymentModel paymentModel)
-        {
-            var payment = paymentModel;
-            
-
-            using (var channel = this.connection.CreateModel())
-            {
-                channel.QueueDeclare(
-                    queue: "payment",
-                    durable: false,
-                    exclusive: false,
-                    autoDelete: false,
-                    arguments: null
-                );
-
-                var customerPayload = System.Text.Json.JsonSerializer.Serialize(payment);
-
-                var body = Encoding.UTF8.GetBytes(customerPayload);
-
-                channel.BasicPublish(
-                    exchange: "",
-                    routingKey: "payment",
-                    basicProperties: null,
-                    body: body
-                );
-            }
-
-            return Ok(payment);
-        }
+    
+        
 
     }
 }

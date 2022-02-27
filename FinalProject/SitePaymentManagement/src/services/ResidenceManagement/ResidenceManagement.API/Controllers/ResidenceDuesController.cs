@@ -7,12 +7,14 @@ using ResidenceManagement.Application.Features.Commands.ResidenceDuesControl.Del
 using ResidenceManagement.Application.Features.Commands.ResidenceDuesControl.UpdateResidenceDues;
 using ResidenceManagement.Application.Features.Queries.ResidenceDues.GetResidenceDues;
 using ResidenceManagement.Application.Features.Queries.ResidenceDues.GetResidenceDuessByUser;
+using ResidenceManagement.Application.Features.Queries.ResidenceDuesControl.GetUnpaidDueses;
+using ResidenceManagement.Infrastructure.Security.Extensions;
 
 namespace ResidenceManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Admin")]
+    [Authorize]
 
     public class ResidenceDuesController : ControllerBase
     {
@@ -24,8 +26,8 @@ namespace ResidenceManagement.API.Controllers
             _mediator = mediator;
         }
 
-
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Get()
         {
 
@@ -33,18 +35,26 @@ namespace ResidenceManagement.API.Controllers
         }
         [HttpGet]
         [Route("GetByUser")]
-        //[Authorize]
 
-
-        public IActionResult GetByUser([FromBody] GetResidenceDuesByUserQuery request)
+        public IActionResult GetByUser( )
         {
-            
+            var request = new GetResidenceDuesByUserQuery();
+            var currentUserId = User.GetUserId();
+            request.UserId = int.Parse(currentUserId);
+            return Ok(_mediator.Send(request));
+        }
 
+        [HttpGet]
+        [Route("GetUnpaidDues")]
+
+        public IActionResult GetUnpaidDues()
+        {
+            var request = new GetUnpaidDuesQuery();
             return Ok(_mediator.Send(request));
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
 
         public IActionResult Add([FromBody] AddResidenceDuesCommand request)
         {
@@ -52,7 +62,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpDelete]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
 
         public IActionResult Delete([FromBody] DeleteResidenceDuesCommand request)
         {
@@ -60,7 +70,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPut]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
 
         public IActionResult Update([FromBody] UpdateResidenceDuesCommand request)
         {
@@ -70,7 +80,7 @@ namespace ResidenceManagement.API.Controllers
 
         [HttpPost]
         [Route("AddRange")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
 
         public IActionResult AddRand([FromBody] AddRangeResidenceDuesCommand request)
         {

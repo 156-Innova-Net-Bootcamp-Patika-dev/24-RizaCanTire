@@ -13,7 +13,7 @@ namespace ResidenceManagement.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class UserResidencesController : ControllerBase
     {
         private IMediator _mediator;
@@ -24,7 +24,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpGet]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
 
         public ActionResult Get()
 
@@ -34,7 +34,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPost]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
 
         public IActionResult Add([FromBody] AddUserResidenceCommand command)
         {
@@ -55,7 +55,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
 
         public IActionResult Delete(int id)
         {
@@ -65,7 +65,7 @@ namespace ResidenceManagement.API.Controllers
         }
 
         [HttpPut]
-        //[Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin")]
 
         public IActionResult Update([FromBody] UpdateUserResidenceCommand request)
         {
@@ -76,8 +76,9 @@ namespace ResidenceManagement.API.Controllers
         [HttpGet]
         [Route("GetByUser")]
 
-        public IActionResult GetByUser([FromBody] GetResidenceByResidentQuery request)
+        public IActionResult GetByUser()
         {
+            var request = new GetResidenceByResidentQuery();
             var currentUserId = User.GetUserId();
             request.UserId = int.Parse(currentUserId);
             return Ok(_mediator.Send(request));

@@ -25,9 +25,9 @@ namespace ResidenceManagement.Application.Features.Queries.ResidenceInvoices.Get
 
         public async Task<BaseDataResponse<IReadOnlyList<ResidenceInvoiceDto>>> Handle(GetResidenceInvoiceByUserQuery request, CancellationToken cancellationToken)
         {
-            string[] includes = { "UserResidence" };
+            string[] includes = { "UserResidence","Invoice", "UserResidence.Residence", "UserResidence.User", "UserResidence.ResidentType" };
             var id = request.UserId;
-            var residenceInvoiceList = await _residenceInvoiceRepository.GetAllAsync(r => r.UserResidence.UserId == 1,includeStrings: includes); 
+            var residenceInvoiceList = await _residenceInvoiceRepository.GetAllAsync(r => r.UserResidence.UserId == request.UserId, includeStrings: includes); 
             
             if (residenceInvoiceList.Count == 0)
                 throw new NotFoundException(request);

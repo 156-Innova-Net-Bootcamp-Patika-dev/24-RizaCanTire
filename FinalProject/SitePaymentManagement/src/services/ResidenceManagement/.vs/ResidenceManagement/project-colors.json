@@ -70,7 +70,12 @@
       "ProjectGuid": "f6f2e40c-34f5-4c7c-ab7a-952b1ce02316",
       "DisplayName": "Program",
       "ColorIndex": 12
+    },
+    "30f52815-17d1-474c-813c-453b9bcbc028": {
+      "ProjectGuid": "30f52815-17d1-474c-813c-453b9bcbc028",
+      "DisplayName": "Consumer",
+      "ColorIndex": 13
     }
   },
-  "NextColorIndex": 13
+  "NextColorIndex": 14
 }
